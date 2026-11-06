@@ -1,0 +1,11 @@
+modo=pattern minutos=10 pid=13947 início=13:08:53
+amostras de métricas (a cada 5 s, após aquecimento): 117
+FPS saída: média 30.32  mín 29.5  máx 31.1  σ 0.25
+FPS fonte: média 30.32
+latência pipeline: média 2.8 ms, p95 médio 4.1 ms, pior p95 5.1 ms
+descartes acumulados (final): 0
+CPU app (amostras de 1 s do motor): média 16%  máx 34%
+Memória PSS app: início 143 MB → fim 112 MB (máx 151)
+consumidor: AUTO_RESULT frames=18179 marker=18179 gaps=43 lastSeq=18367
+crashes: 0
+avisos/erros NVC: 0

@@ -1,0 +1,25 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+/out/
+/evidence/*.mp4
+keystore/
+
+# patcher / ferramentas / terceiros (reproduzíveis; ver tools/README.md e third_party/README.md)
+/patcher/out/
+/patcher/build/
+/tools/*.jar
+/third_party/opencamera/
+*.apk
+*.idsig
+*.jks
+*.keystore
+
+# capturas da câmera física real (privacidade)
+/evidence/20_camera_traseira.png
+/evidence/21_camera_frontal.png
+/evidence/40_consumidor_camera_frontal.png
+/evidence/41_captura_sdk_camera.jpg

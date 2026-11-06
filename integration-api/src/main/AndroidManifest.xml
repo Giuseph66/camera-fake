@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Visibilidade de pacote (Android 11+): sem isto o consumidor não enxerga o serviço do NEURELIX.
+         Foi exatamente a causa do "Failed to find provider info" visto com xCam+LSPatch. -->
+    <queries>
+        <package android:name="br.com.neurelix.virtualcamera" />
+    </queries>
+</manifest>

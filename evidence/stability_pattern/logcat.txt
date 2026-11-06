@@ -1,0 +1,749 @@
+--------- beginning of main
+11-06 13:08:49.445 13947 13964 I NVC/engine: [init] GL pronto: Adreno (TM) 650 / OpenGL ES 3.2 V@0502.0 (GIT@193b2ee, I593c16c433, 1633593732) (Date:10/07/21) (recordable=true)
+11-06 13:08:49.459 13947 13947 I NVC/app : [boot] NEURELIX iniciado (pid=13947)
+11-06 13:08:49.887 13947 13947 I NVC/engine: [output] saída 'preview' adicionada (external=false, 984x554)
+11-06 13:08:50.232 13947 13947 I NVC/engine: [source] fonte iniciada: Diagnóstico: Quadros numerados
+11-06 13:08:50.233 13947 13947 I NVC/app : [controller] iniciado: Quadros numerados (PATTERN)
+11-06 13:08:50.236 13947 13964 I NVC/engine: [gl] alvos de render 1280x720 alocados
+11-06 13:08:50.482 13947 13964 I NVC/engine: [metrics] src=6,9 out=6,9 fps min=6,9 max=6,9 sd=0,00 drop=0 lat=3,7/p95 3,2 ms cpu=148% mem=153MB outs=1 luma=-1,00
+11-06 13:08:53.487 14005 14005 I NVC-CONSUMER: AUTO_START seconds=600 1280x720@30
+11-06 13:08:53.652 13947 13947 I NVC/engine: [output] saída 'preview' removida (entregues=104, descartes=0)
+11-06 13:08:54.996 14005 14005 I NVC-CONSUMER: Consultando serviço NEURELIX…
+11-06 13:08:55.013 13947 13947 I NVC/binder: [service] bind de br.com.neurelix.vcam.action.BIND_VIRTUAL_CAMERA
+11-06 13:08:55.023 14005 14005 I NVC-CONSUMER: STATUS ok: estado=2 fonte='Diagnóstico: Quadros numerados' externo=true autorizado=true saída=1280x720@30
+11-06 13:08:55.030 13947 13978 I NVC/binder: [session] sessão 17939849350301 aberta por br.com.neurelix.vcam.consumer
+11-06 13:08:55.031 14005 14005 I NVC-CONSUMER: OPEN_SESSION ok
+11-06 13:08:55.037 13947 13978 I NVC/engine: [output] saída 'ext-17939849350301-1' adicionada (external=true, 1280x720)
+11-06 13:08:55.037 13947 13978 I NVC/binder: [session] stream 1 anexado por br.com.neurelix.vcam.consumer: pedido 1280x720@30 → Surface real 1280x720
+11-06 13:08:55.038 14005 14005 I NVC-CONSUMER: ATTACH reader ok: stream=1 surface=1280x720@30 fonte='Diagnóstico: Quadros numerados' fmt=RGBA8888 (GL) 1280x720 master
+11-06 13:08:55.047 13947 13978 I NVC/engine: [output] saída 'ext-17939849350301-2' adicionada (external=true, 1032x1415)
+11-06 13:08:55.048 13947 13978 I NVC/binder: [session] stream 2 anexado por br.com.neurelix.vcam.consumer: pedido 1032x1415@30 → Surface real 1032x1415
+11-06 13:08:55.050 14005 14005 I NVC-CONSUMER: ATTACH preview ok: stream=2 surface=1032x1415
+11-06 13:08:55.679 13947 13964 I NVC/engine: [metrics] src=32,3 out=32,3 fps min=6,9 max=32,3 sd=8,91 drop=0 lat=2,7/p95 3,6 ms cpu=30% mem=130MB outs=2 luma=0,17
+11-06 13:08:56.057 14005 14005 I NVC-CONSUMER: STATS fps=32,9 frames=33 marker=33 lastSeq=178 gaps=0 latRender→leitura=6,9ms
+11-06 13:08:57.062 14005 14005 I NVC-CONSUMER: STATS fps=29,8 frames=63 marker=63 lastSeq=208 gaps=0 latRender→leitura=7,0ms
+11-06 13:08:58.063 14005 14005 I NVC-CONSUMER: STATS fps=30,0 frames=93 marker=93 lastSeq=238 gaps=0 latRender→leitura=7,2ms
+11-06 13:08:58.108 13947 13978 I NVC/binder: [session] captura JPEG 42055 bytes entregue a br.com.neurelix.vcam.consumer
+11-06 13:08:58.115 14005 14005 I NVC-CONSUMER: PHOTO_SDK ok: 42055 bytes 1280x720 marker=true seq=239 → sdk_capture.jpg
+11-06 13:08:58.191 14005 14005 I NVC-CONSUMER: PHOTO_READER ok: 1280x720 marker=true seq=241 → reader_capture.png
+11-06 13:08:59.064 14005 14005 I NVC-CONSUMER: STATS fps=31,0 frames=124 marker=124 lastSeq=270 gaps=1 latRender→leitura=7,0ms
+11-06 13:09:00.068 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=154 marker=154 lastSeq=300 gaps=1 latRender→leitura=7,5ms
+11-06 13:09:00.951 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=6,9 max=32,3 sd=6,86 drop=0 lat=3,0/p95 4,2 ms cpu=22% mem=142MB outs=2 luma=0,17
+11-06 13:09:01.071 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=185 marker=185 lastSeq=331 gaps=1 latRender→leitura=7,5ms
+11-06 13:09:02.073 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=215 marker=215 lastSeq=361 gaps=1 latRender→leitura=7,3ms
+11-06 13:09:03.077 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=245 marker=245 lastSeq=391 gaps=1 latRender→leitura=7,4ms
+11-06 13:09:04.079 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=276 marker=276 lastSeq=422 gaps=1 latRender→leitura=7,8ms
+11-06 13:09:05.083 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=306 marker=306 lastSeq=452 gaps=1 latRender→leitura=7,1ms
+11-06 13:09:06.087 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=337 marker=337 lastSeq=483 gaps=1 latRender→leitura=7,1ms
+11-06 13:09:06.244 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=6,9 max=32,3 sd=5,75 drop=0 lat=3,3/p95 4,7 ms cpu=22% mem=143MB outs=2 luma=0,17
+11-06 13:09:07.091 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=367 marker=367 lastSeq=513 gaps=1 latRender→leitura=7,4ms
+11-06 13:09:08.094 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=398 marker=397 lastSeq=543 gaps=1 latRender→leitura=7,5ms
+11-06 13:09:09.098 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=428 marker=428 lastSeq=574 gaps=1 latRender→leitura=7,4ms
+11-06 13:09:10.102 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=458 marker=458 lastSeq=604 gaps=1 latRender→leitura=7,1ms
+11-06 13:09:11.105 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=488 marker=488 lastSeq=635 gaps=2 latRender→leitura=7,6ms
+11-06 13:09:11.524 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=6,9 max=32,3 sd=5,04 drop=0 lat=3,1/p95 4,4 ms cpu=23% mem=144MB outs=2 luma=0,17
+11-06 13:09:12.109 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=518 marker=518 lastSeq=665 gaps=2 latRender→leitura=7,4ms
+11-06 13:09:13.112 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=549 marker=549 lastSeq=696 gaps=2 latRender→leitura=7,7ms
+11-06 13:09:14.115 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=579 marker=579 lastSeq=726 gaps=2 latRender→leitura=7,1ms
+11-06 13:09:15.119 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=609 marker=609 lastSeq=756 gaps=2 latRender→leitura=7,7ms
+11-06 13:09:16.122 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=640 marker=640 lastSeq=787 gaps=2 latRender→leitura=7,5ms
+11-06 13:09:16.805 13947 13964 I NVC/engine: [metrics] src=30,5 out=30,5 fps min=6,9 max=32,3 sd=4,55 drop=0 lat=3,0/p95 4,6 ms cpu=22% mem=144MB outs=2 luma=0,18
+11-06 13:09:17.124 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=670 marker=670 lastSeq=817 gaps=2 latRender→leitura=7,4ms
+11-06 13:09:18.126 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=701 marker=701 lastSeq=848 gaps=2 latRender→leitura=7,2ms
+11-06 13:09:19.130 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=731 marker=731 lastSeq=878 gaps=2 latRender→leitura=7,2ms
+11-06 13:09:20.133 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=760 marker=760 lastSeq=908 gaps=3 latRender→leitura=6,9ms
+11-06 13:09:21.135 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=791 marker=791 lastSeq=939 gaps=3 latRender→leitura=7,2ms
+11-06 13:09:22.085 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=6,9 max=32,3 sd=4,18 drop=0 lat=3,0/p95 4,6 ms cpu=21% mem=145MB outs=2 luma=0,19
+11-06 13:09:22.139 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=821 marker=821 lastSeq=969 gaps=3 latRender→leitura=7,4ms
+11-06 13:09:23.141 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=850 marker=850 lastSeq=998 gaps=3 latRender→leitura=7,4ms
+11-06 13:09:24.143 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=882 marker=882 lastSeq=1030 gaps=3 latRender→leitura=6,4ms
+11-06 13:09:25.146 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=912 marker=912 lastSeq=1060 gaps=3 latRender→leitura=7,2ms
+11-06 13:09:26.150 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=943 marker=943 lastSeq=1091 gaps=3 latRender→leitura=7,3ms
+11-06 13:09:27.153 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=972 marker=972 lastSeq=1121 gaps=4 latRender→leitura=7,2ms
+11-06 13:09:27.366 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=6,9 max=32,3 sd=3,88 drop=0 lat=3,0/p95 4,6 ms cpu=21% mem=146MB outs=2 luma=0,17
+11-06 13:09:28.155 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1003 marker=1002 lastSeq=1151 gaps=4 latRender→leitura=6,9ms
+11-06 13:09:29.159 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1033 marker=1033 lastSeq=1182 gaps=4 latRender→leitura=7,2ms
+11-06 13:09:30.162 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1063 marker=1063 lastSeq=1212 gaps=4 latRender→leitura=7,2ms
+11-06 13:09:31.166 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1094 marker=1094 lastSeq=1243 gaps=4 latRender→leitura=7,4ms
+11-06 13:09:32.169 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1124 marker=1124 lastSeq=1273 gaps=4 latRender→leitura=7,4ms
+11-06 13:09:32.669 13947 13964 I NVC/engine: [metrics] src=31,0 out=31,0 fps min=6,9 max=32,3 sd=3,65 drop=0 lat=3,0/p95 4,2 ms cpu=21% mem=146MB outs=2 luma=0,17
+11-06 13:09:33.172 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1154 marker=1154 lastSeq=1303 gaps=4 latRender→leitura=7,0ms
+11-06 13:09:34.175 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1185 marker=1185 lastSeq=1334 gaps=4 latRender→leitura=7,2ms
+11-06 13:09:35.178 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1215 marker=1215 lastSeq=1364 gaps=4 latRender→leitura=6,9ms
+11-06 13:09:36.180 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1246 marker=1246 lastSeq=1395 gaps=4 latRender→leitura=7,5ms
+11-06 13:09:37.183 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1276 marker=1276 lastSeq=1425 gaps=4 latRender→leitura=6,8ms
+11-06 13:09:37.948 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=6,9 max=32,3 sd=3,45 drop=0 lat=3,0/p95 4,4 ms cpu=21% mem=147MB outs=2 luma=0,18
+11-06 13:09:38.185 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1306 marker=1306 lastSeq=1455 gaps=4 latRender→leitura=7,1ms
+11-06 13:09:39.188 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1337 marker=1337 lastSeq=1486 gaps=4 latRender→leitura=7,0ms
+11-06 13:09:40.192 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1367 marker=1367 lastSeq=1516 gaps=4 latRender→leitura=6,9ms
+11-06 13:09:41.196 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1398 marker=1398 lastSeq=1547 gaps=4 latRender→leitura=7,1ms
+11-06 13:09:42.199 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1428 marker=1428 lastSeq=1577 gaps=4 latRender→leitura=7,1ms
+11-06 13:09:43.202 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1458 marker=1458 lastSeq=1607 gaps=4 latRender→leitura=6,5ms
+11-06 13:09:43.228 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=6,9 max=32,3 sd=3,28 drop=0 lat=2,9/p95 4,2 ms cpu=20% mem=147MB outs=2 luma=0,17
+11-06 13:09:44.205 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1489 marker=1489 lastSeq=1638 gaps=4 latRender→leitura=6,8ms
+11-06 13:09:45.208 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=1518 marker=1518 lastSeq=1668 gaps=5 latRender→leitura=6,7ms
+11-06 13:09:46.211 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1549 marker=1549 lastSeq=1699 gaps=5 latRender→leitura=6,7ms
+11-06 13:09:47.215 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1579 marker=1579 lastSeq=1729 gaps=5 latRender→leitura=6,7ms
+11-06 13:09:48.218 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1609 marker=1609 lastSeq=1759 gaps=5 latRender→leitura=6,8ms
+11-06 13:09:48.518 13947 13964 I NVC/engine: [metrics] src=30,1 out=30,1 fps min=6,9 max=32,3 sd=3,13 drop=0 lat=2,8/p95 4,2 ms cpu=21% mem=147MB outs=2 luma=0,17
+11-06 13:09:49.221 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1640 marker=1640 lastSeq=1790 gaps=5 latRender→leitura=7,0ms
+11-06 13:09:50.224 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=1669 marker=1669 lastSeq=1820 gaps=6 latRender→leitura=6,7ms
+11-06 13:09:51.227 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1700 marker=1700 lastSeq=1851 gaps=6 latRender→leitura=6,9ms
+11-06 13:09:52.230 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=1729 marker=1729 lastSeq=1881 gaps=7 latRender→leitura=7,0ms
+11-06 13:09:53.233 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=1758 marker=1758 lastSeq=1911 gaps=8 latRender→leitura=6,8ms
+11-06 13:09:53.806 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,9 max=32,3 sd=0,33 drop=0 lat=2,8/p95 4,2 ms cpu=20% mem=147MB outs=2 luma=0,18
+11-06 13:09:54.236 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1789 marker=1789 lastSeq=1942 gaps=8 latRender→leitura=6,7ms
+11-06 13:09:55.240 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1819 marker=1819 lastSeq=1972 gaps=8 latRender→leitura=6,7ms
+11-06 13:09:56.242 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1850 marker=1850 lastSeq=2003 gaps=8 latRender→leitura=6,5ms
+11-06 13:09:57.246 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1880 marker=1880 lastSeq=2033 gaps=8 latRender→leitura=6,9ms
+11-06 13:09:58.249 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1910 marker=1910 lastSeq=2063 gaps=8 latRender→leitura=7,3ms
+11-06 13:09:59.094 13947 13964 I NVC/engine: [metrics] src=31,1 out=31,1 fps min=30,1 max=31,2 sd=0,20 drop=0 lat=2,8/p95 4,3 ms cpu=20% mem=146MB outs=2 luma=0,17
+11-06 13:09:59.253 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=1941 marker=1941 lastSeq=2094 gaps=8 latRender→leitura=6,6ms
+11-06 13:10:00.256 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=1971 marker=1971 lastSeq=2124 gaps=8 latRender→leitura=6,6ms
+11-06 13:10:01.260 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2002 marker=2002 lastSeq=2155 gaps=8 latRender→leitura=7,1ms
+11-06 13:10:02.263 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=2031 marker=2031 lastSeq=2184 gaps=8 latRender→leitura=7,0ms
+11-06 13:10:03.267 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2062 marker=2062 lastSeq=2215 gaps=8 latRender→leitura=6,4ms
+11-06 13:10:04.270 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2093 marker=2093 lastSeq=2246 gaps=8 latRender→leitura=6,4ms
+11-06 13:10:04.380 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,9/p95 4,6 ms cpu=20% mem=147MB outs=2 luma=0,17
+11-06 13:10:05.274 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2123 marker=2123 lastSeq=2276 gaps=8 latRender→leitura=6,4ms
+11-06 13:10:06.278 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2154 marker=2154 lastSeq=2307 gaps=8 latRender→leitura=6,7ms
+11-06 13:10:07.282 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2184 marker=2184 lastSeq=2337 gaps=8 latRender→leitura=7,1ms
+11-06 13:10:08.285 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2215 marker=2215 lastSeq=2368 gaps=8 latRender→leitura=7,0ms
+11-06 13:10:09.289 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2245 marker=2245 lastSeq=2398 gaps=8 latRender→leitura=6,9ms
+11-06 13:10:09.674 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,8/p95 3,8 ms cpu=20% mem=147MB outs=2 luma=0,18
+11-06 13:10:10.292 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2275 marker=2275 lastSeq=2428 gaps=8 latRender→leitura=6,3ms
+11-06 13:10:11.295 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2306 marker=2306 lastSeq=2459 gaps=8 latRender→leitura=6,4ms
+11-06 13:10:12.298 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2336 marker=2336 lastSeq=2489 gaps=8 latRender→leitura=6,8ms
+11-06 13:10:13.301 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2367 marker=2367 lastSeq=2520 gaps=8 latRender→leitura=6,7ms
+11-06 13:10:14.305 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2397 marker=2397 lastSeq=2550 gaps=8 latRender→leitura=6,5ms
+11-06 13:10:14.962 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,8/p95 3,8 ms cpu=19% mem=147MB outs=2 luma=0,17
+11-06 13:10:15.310 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2427 marker=2427 lastSeq=2580 gaps=8 latRender→leitura=7,1ms
+11-06 13:10:16.313 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2458 marker=2458 lastSeq=2611 gaps=8 latRender→leitura=7,0ms
+11-06 13:10:17.317 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2488 marker=2488 lastSeq=2641 gaps=8 latRender→leitura=6,9ms
+11-06 13:10:18.319 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2519 marker=2519 lastSeq=2672 gaps=8 latRender→leitura=7,1ms
+11-06 13:10:19.323 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2549 marker=2549 lastSeq=2702 gaps=8 latRender→leitura=7,2ms
+11-06 13:10:20.262 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,19 drop=0 lat=2,8/p95 4,0 ms cpu=19% mem=147MB outs=2 luma=0,17
+11-06 13:10:20.327 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2579 marker=2579 lastSeq=2732 gaps=8 latRender→leitura=6,9ms
+11-06 13:10:21.330 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2609 marker=2608 lastSeq=2761 gaps=8 latRender→leitura=6,8ms
+11-06 13:10:22.333 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2640 marker=2640 lastSeq=2793 gaps=8 latRender→leitura=6,8ms
+11-06 13:10:23.336 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2671 marker=2671 lastSeq=2824 gaps=8 latRender→leitura=6,7ms
+11-06 13:10:24.339 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2701 marker=2701 lastSeq=2854 gaps=8 latRender→leitura=6,8ms
+11-06 13:10:25.343 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2731 marker=2731 lastSeq=2884 gaps=8 latRender→leitura=6,8ms
+11-06 13:10:25.557 13947 13964 I NVC/engine: [metrics] src=30,4 out=30,4 fps min=30,0 max=31,1 sd=0,19 drop=0 lat=2,8/p95 4,2 ms cpu=26% mem=146MB outs=2 luma=0,19
+11-06 13:10:26.346 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2762 marker=2762 lastSeq=2915 gaps=8 latRender→leitura=6,6ms
+11-06 13:10:27.349 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2792 marker=2792 lastSeq=2945 gaps=8 latRender→leitura=7,3ms
+11-06 13:10:28.352 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2823 marker=2823 lastSeq=2976 gaps=8 latRender→leitura=7,2ms
+11-06 13:10:29.356 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2853 marker=2853 lastSeq=3006 gaps=8 latRender→leitura=6,9ms
+11-06 13:10:30.360 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2883 marker=2883 lastSeq=3036 gaps=8 latRender→leitura=6,5ms
+11-06 13:10:30.844 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,0 max=31,1 sd=0,22 drop=0 lat=2,8/p95 4,3 ms cpu=20% mem=146MB outs=2 luma=0,17
+11-06 13:10:31.363 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2914 marker=2914 lastSeq=3067 gaps=8 latRender→leitura=7,2ms
+11-06 13:10:32.368 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=2944 marker=2944 lastSeq=3097 gaps=8 latRender→leitura=7,0ms
+11-06 13:10:33.371 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=2975 marker=2975 lastSeq=3128 gaps=8 latRender→leitura=7,1ms
+11-06 13:10:34.373 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3005 marker=3005 lastSeq=3158 gaps=8 latRender→leitura=6,9ms
+11-06 13:10:35.376 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=3034 marker=3034 lastSeq=3188 gaps=9 latRender→leitura=6,9ms
+11-06 13:10:36.112 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,0 max=31,1 sd=0,19 drop=0 lat=2,8/p95 4,3 ms cpu=19% mem=147MB outs=2 luma=0,17
+11-06 13:10:36.380 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3065 marker=3065 lastSeq=3219 gaps=9 latRender→leitura=6,8ms
+11-06 13:10:37.382 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3095 marker=3095 lastSeq=3249 gaps=9 latRender→leitura=7,0ms
+11-06 13:10:38.386 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3126 marker=3126 lastSeq=3280 gaps=9 latRender→leitura=6,6ms
+11-06 13:10:39.389 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3156 marker=3156 lastSeq=3310 gaps=9 latRender→leitura=6,7ms
+11-06 13:10:40.392 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3186 marker=3186 lastSeq=3341 gaps=10 latRender→leitura=6,8ms
+11-06 13:10:41.396 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=3215 marker=3215 lastSeq=3370 gaps=10 latRender→leitura=7,1ms
+11-06 13:10:41.404 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,1 sd=0,22 drop=0 lat=2,8/p95 4,3 ms cpu=20% mem=147MB outs=2 luma=0,18
+11-06 13:10:42.398 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3246 marker=3246 lastSeq=3401 gaps=10 latRender→leitura=6,6ms
+11-06 13:10:43.401 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3277 marker=3277 lastSeq=3432 gaps=10 latRender→leitura=6,9ms
+11-06 13:10:44.405 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3307 marker=3307 lastSeq=3462 gaps=10 latRender→leitura=6,9ms
+11-06 13:10:45.408 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3338 marker=3337 lastSeq=3492 gaps=10 latRender→leitura=6,6ms
+11-06 13:10:46.410 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3368 marker=3368 lastSeq=3523 gaps=10 latRender→leitura=6,5ms
+11-06 13:10:46.686 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,1 sd=0,22 drop=0 lat=2,8/p95 4,2 ms cpu=22% mem=147MB outs=2 luma=0,17
+11-06 13:10:47.413 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3398 marker=3398 lastSeq=3553 gaps=10 latRender→leitura=6,8ms
+11-06 13:10:48.416 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3429 marker=3429 lastSeq=3584 gaps=10 latRender→leitura=6,8ms
+11-06 13:10:49.419 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=3458 marker=3458 lastSeq=3614 gaps=11 latRender→leitura=7,1ms
+11-06 13:10:50.422 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=3487 marker=3487 lastSeq=3644 gaps=12 latRender→leitura=6,9ms
+11-06 13:10:51.425 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3517 marker=3517 lastSeq=3675 gaps=13 latRender→leitura=6,9ms
+11-06 13:10:51.992 13947 13964 I NVC/engine: [metrics] src=30,1 out=30,1 fps min=29,7 max=31,1 sd=0,23 drop=0 lat=2,8/p95 4,1 ms cpu=20% mem=147MB outs=2 luma=0,18
+11-06 13:10:52.428 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3547 marker=3547 lastSeq=3705 gaps=13 latRender→leitura=7,3ms
+11-06 13:10:53.432 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3578 marker=3578 lastSeq=3736 gaps=13 latRender→leitura=7,1ms
+11-06 13:10:54.435 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3608 marker=3608 lastSeq=3766 gaps=13 latRender→leitura=6,7ms
+11-06 13:10:55.438 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3638 marker=3638 lastSeq=3796 gaps=13 latRender→leitura=6,4ms
+11-06 13:10:56.443 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=3669 marker=3669 lastSeq=3827 gaps=13 latRender→leitura=6,8ms
+11-06 13:10:57.277 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,1 sd=0,25 drop=0 lat=2,9/p95 4,5 ms cpu=20% mem=146MB outs=2 luma=0,19
+11-06 13:10:57.445 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3699 marker=3699 lastSeq=3857 gaps=13 latRender→leitura=7,1ms
+11-06 13:10:58.449 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3730 marker=3730 lastSeq=3888 gaps=13 latRender→leitura=7,2ms
+11-06 13:10:59.451 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3760 marker=3760 lastSeq=3918 gaps=13 latRender→leitura=6,4ms
+11-06 13:11:00.454 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3790 marker=3790 lastSeq=3948 gaps=13 latRender→leitura=6,1ms
+11-06 13:11:01.457 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3820 marker=3820 lastSeq=3978 gaps=13 latRender→leitura=6,7ms
+11-06 13:11:02.460 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3851 marker=3851 lastSeq=4009 gaps=13 latRender→leitura=7,1ms
+11-06 13:11:02.557 13947 13964 I NVC/engine: [metrics] src=31,1 out=31,1 fps min=29,5 max=31,1 sd=0,30 drop=0 lat=2,8/p95 4,5 ms cpu=20% mem=146MB outs=2 luma=0,17
+11-06 13:11:03.463 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3882 marker=3882 lastSeq=4040 gaps=13 latRender→leitura=6,9ms
+11-06 13:11:04.466 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3912 marker=3912 lastSeq=4070 gaps=13 latRender→leitura=6,9ms
+11-06 13:11:05.470 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=3942 marker=3942 lastSeq=4100 gaps=13 latRender→leitura=6,3ms
+11-06 13:11:06.473 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=3973 marker=3973 lastSeq=4131 gaps=13 latRender→leitura=7,1ms
+11-06 13:11:07.476 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4003 marker=4003 lastSeq=4161 gaps=13 latRender→leitura=6,9ms
+11-06 13:11:07.854 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,1 sd=0,31 drop=0 lat=2,8/p95 4,5 ms cpu=20% mem=147MB outs=2 luma=0,17
+11-06 13:11:08.480 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4034 marker=4034 lastSeq=4192 gaps=13 latRender→leitura=6,4ms
+11-06 13:11:09.483 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4064 marker=4064 lastSeq=4222 gaps=13 latRender→leitura=6,6ms
+11-06 13:11:10.485 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4094 marker=4094 lastSeq=4252 gaps=13 latRender→leitura=7,1ms
+11-06 13:11:11.488 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4125 marker=4125 lastSeq=4283 gaps=13 latRender→leitura=7,2ms
+11-06 13:11:12.492 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4155 marker=4155 lastSeq=4313 gaps=13 latRender→leitura=7,0ms
+11-06 13:11:13.133 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,31 drop=0 lat=2,8/p95 4,6 ms cpu=19% mem=147MB outs=2 luma=0,17
+11-06 13:11:13.494 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4186 marker=4186 lastSeq=4344 gaps=13 latRender→leitura=7,0ms
+11-06 13:11:14.497 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4216 marker=4216 lastSeq=4374 gaps=13 latRender→leitura=6,3ms
+11-06 13:11:15.501 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4246 marker=4246 lastSeq=4404 gaps=13 latRender→leitura=6,5ms
+11-06 13:11:16.504 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4277 marker=4277 lastSeq=4435 gaps=13 latRender→leitura=7,4ms
+11-06 13:11:17.508 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4307 marker=4307 lastSeq=4465 gaps=13 latRender→leitura=7,1ms
+11-06 13:11:18.415 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,31 drop=0 lat=2,8/p95 4,5 ms cpu=21% mem=147MB outs=2 luma=0,17
+11-06 13:11:18.512 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4338 marker=4338 lastSeq=4496 gaps=13 latRender→leitura=7,1ms
+11-06 13:11:19.514 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4368 marker=4368 lastSeq=4526 gaps=13 latRender→leitura=6,9ms
+11-06 13:11:20.517 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=4397 marker=4397 lastSeq=4555 gaps=13 latRender→leitura=6,3ms
+11-06 13:11:21.519 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=4429 marker=4429 lastSeq=4587 gaps=13 latRender→leitura=6,8ms
+11-06 13:11:22.523 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=4458 marker=4458 lastSeq=4617 gaps=14 latRender→leitura=6,9ms
+11-06 13:11:23.526 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4488 marker=4488 lastSeq=4648 gaps=15 latRender→leitura=6,9ms
+11-06 13:11:23.701 13947 13964 I NVC/engine: [metrics] src=30,5 out=30,5 fps min=29,5 max=31,1 sd=0,29 drop=0 lat=2,8/p95 4,1 ms cpu=20% mem=151MB outs=2 luma=0,18
+11-06 13:11:24.529 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=4517 marker=4517 lastSeq=4678 gaps=16 latRender→leitura=6,9ms
+11-06 13:11:25.531 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4547 marker=4547 lastSeq=4708 gaps=16 latRender→leitura=6,5ms
+11-06 13:11:26.534 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4577 marker=4577 lastSeq=4739 gaps=17 latRender→leitura=7,0ms
+11-06 13:11:27.538 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4607 marker=4607 lastSeq=4769 gaps=17 latRender→leitura=6,8ms
+11-06 13:11:28.541 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4638 marker=4638 lastSeq=4800 gaps=17 latRender→leitura=7,1ms
+11-06 13:11:28.981 13947 13964 I NVC/engine: [metrics] src=31,1 out=31,1 fps min=29,5 max=31,1 sd=0,33 drop=0 lat=2,9/p95 4,3 ms cpu=20% mem=150MB outs=2 luma=0,18
+11-06 13:11:29.545 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4668 marker=4668 lastSeq=4830 gaps=17 latRender→leitura=6,9ms
+11-06 13:11:30.550 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4698 marker=4698 lastSeq=4860 gaps=17 latRender→leitura=7,1ms
+11-06 13:11:31.553 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4729 marker=4729 lastSeq=4891 gaps=17 latRender→leitura=7,2ms
+11-06 13:11:32.558 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=4758 marker=4758 lastSeq=4921 gaps=18 latRender→leitura=6,8ms
+11-06 13:11:33.561 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4789 marker=4789 lastSeq=4952 gaps=18 latRender→leitura=7,0ms
+11-06 13:11:34.272 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,35 drop=0 lat=2,9/p95 4,3 ms cpu=20% mem=150MB outs=2 luma=0,17
+11-06 13:11:34.565 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4819 marker=4819 lastSeq=4982 gaps=18 latRender→leitura=7,2ms
+11-06 13:11:35.569 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=4850 marker=4850 lastSeq=5013 gaps=18 latRender→leitura=6,8ms
+11-06 13:11:36.572 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4880 marker=4880 lastSeq=5043 gaps=18 latRender→leitura=6,7ms
+11-06 13:11:37.576 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=4909 marker=4909 lastSeq=5073 gaps=19 latRender→leitura=6,7ms
+11-06 13:11:38.579 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4939 marker=4939 lastSeq=5104 gaps=20 latRender→leitura=7,0ms
+11-06 13:11:39.558 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,35 drop=0 lat=2,8/p95 3,6 ms cpu=21% mem=150MB outs=2 luma=0,17
+11-06 13:11:39.583 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4969 marker=4969 lastSeq=5134 gaps=20 latRender→leitura=6,7ms
+11-06 13:11:40.587 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=4999 marker=4999 lastSeq=5164 gaps=20 latRender→leitura=7,0ms
+11-06 13:11:41.590 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5030 marker=5030 lastSeq=5195 gaps=20 latRender→leitura=6,8ms
+11-06 13:11:42.595 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5060 marker=5060 lastSeq=5225 gaps=20 latRender→leitura=6,8ms
+11-06 13:11:43.599 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5091 marker=5091 lastSeq=5256 gaps=20 latRender→leitura=6,8ms
+11-06 13:11:44.602 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=5120 marker=5120 lastSeq=5286 gaps=21 latRender→leitura=6,8ms
+11-06 13:11:44.845 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,33 drop=0 lat=2,8/p95 3,6 ms cpu=20% mem=150MB outs=2 luma=0,17
+11-06 13:11:45.606 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5151 marker=5151 lastSeq=5317 gaps=21 latRender→leitura=6,9ms
+11-06 13:11:46.609 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5181 marker=5181 lastSeq=5347 gaps=21 latRender→leitura=6,8ms
+11-06 13:11:47.612 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5211 marker=5211 lastSeq=5377 gaps=21 latRender→leitura=7,0ms
+11-06 13:11:48.616 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5242 marker=5242 lastSeq=5408 gaps=21 latRender→leitura=6,7ms
+11-06 13:11:49.620 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5272 marker=5272 lastSeq=5438 gaps=21 latRender→leitura=7,1ms
+11-06 13:11:50.133 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,1 sd=0,33 drop=0 lat=2,8/p95 4,1 ms cpu=21% mem=151MB outs=2 luma=0,16
+11-06 13:11:50.623 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5303 marker=5303 lastSeq=5469 gaps=21 latRender→leitura=6,6ms
+11-06 13:11:51.627 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5333 marker=5333 lastSeq=5499 gaps=21 latRender→leitura=7,3ms
+11-06 13:11:52.630 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5364 marker=5363 lastSeq=5529 gaps=21 latRender→leitura=7,1ms
+11-06 13:11:53.635 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5394 marker=5394 lastSeq=5560 gaps=21 latRender→leitura=7,0ms
+11-06 13:11:54.638 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5424 marker=5424 lastSeq=5590 gaps=21 latRender→leitura=6,8ms
+11-06 13:11:55.422 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,34 drop=0 lat=2,8/p95 4,1 ms cpu=20% mem=151MB outs=2 luma=0,18
+11-06 13:11:55.641 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5455 marker=5455 lastSeq=5621 gaps=21 latRender→leitura=6,7ms
+11-06 13:11:56.645 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5485 marker=5485 lastSeq=5651 gaps=21 latRender→leitura=6,6ms
+11-06 13:11:57.649 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5516 marker=5516 lastSeq=5682 gaps=21 latRender→leitura=6,9ms
+11-06 13:11:58.651 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5546 marker=5546 lastSeq=5712 gaps=21 latRender→leitura=6,4ms
+11-06 13:11:59.655 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=5575 marker=5575 lastSeq=5741 gaps=21 latRender→leitura=6,6ms
+11-06 13:12:00.658 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=5607 marker=5607 lastSeq=5773 gaps=21 latRender→leitura=6,8ms
+11-06 13:12:00.707 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,32 drop=0 lat=2,8/p95 4,1 ms cpu=19% mem=150MB outs=2 luma=0,18
+11-06 13:12:01.661 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5637 marker=5637 lastSeq=5803 gaps=21 latRender→leitura=6,9ms
+11-06 13:12:02.665 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5667 marker=5667 lastSeq=5834 gaps=22 latRender→leitura=6,8ms
+11-06 13:12:03.668 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=5696 marker=5696 lastSeq=5864 gaps=23 latRender→leitura=7,0ms
+11-06 13:12:04.672 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5726 marker=5726 lastSeq=5894 gaps=23 latRender→leitura=6,8ms
+11-06 13:12:05.676 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5756 marker=5756 lastSeq=5925 gaps=24 latRender→leitura=7,1ms
+11-06 13:12:05.988 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,6 max=31,1 sd=0,25 drop=0 lat=2,7/p95 4,0 ms cpu=20% mem=150MB outs=2 luma=0,17
+11-06 13:12:06.679 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5786 marker=5786 lastSeq=5955 gaps=24 latRender→leitura=7,0ms
+11-06 13:12:07.682 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5817 marker=5817 lastSeq=5986 gaps=24 latRender→leitura=6,1ms
+11-06 13:12:08.685 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=5846 marker=5846 lastSeq=6016 gaps=25 latRender→leitura=7,0ms
+11-06 13:12:09.689 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5876 marker=5876 lastSeq=6046 gaps=25 latRender→leitura=7,0ms
+11-06 13:12:10.692 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5907 marker=5907 lastSeq=6077 gaps=25 latRender→leitura=6,8ms
+11-06 13:12:11.261 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,6 max=31,1 sd=0,28 drop=0 lat=2,8/p95 4,1 ms cpu=20% mem=150MB outs=2 luma=0,18
+11-06 13:12:11.696 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=5937 marker=5937 lastSeq=6107 gaps=25 latRender→leitura=6,9ms
+11-06 13:12:12.698 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=5968 marker=5968 lastSeq=6138 gaps=25 latRender→leitura=6,9ms
+11-06 13:12:13.702 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=5997 marker=5997 lastSeq=6168 gaps=26 latRender→leitura=6,9ms
+11-06 13:12:14.706 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6027 marker=6027 lastSeq=6198 gaps=26 latRender→leitura=6,8ms
+11-06 13:12:15.708 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6058 marker=6058 lastSeq=6229 gaps=26 latRender→leitura=6,7ms
+11-06 13:12:16.544 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,6 max=31,1 sd=0,28 drop=0 lat=2,8/p95 4,1 ms cpu=19% mem=150MB outs=2 luma=0,18
+11-06 13:12:16.712 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6088 marker=6088 lastSeq=6259 gaps=26 latRender→leitura=6,8ms
+11-06 13:12:17.715 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6119 marker=6119 lastSeq=6290 gaps=26 latRender→leitura=7,3ms
+11-06 13:12:18.719 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6149 marker=6149 lastSeq=6320 gaps=26 latRender→leitura=7,0ms
+11-06 13:12:19.721 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=6178 marker=6178 lastSeq=6349 gaps=26 latRender→leitura=7,1ms
+11-06 13:12:20.725 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=6210 marker=6210 lastSeq=6381 gaps=26 latRender→leitura=7,0ms
+11-06 13:12:21.727 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6240 marker=6240 lastSeq=6411 gaps=26 latRender→leitura=6,8ms
+11-06 13:12:21.830 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,6 max=31,1 sd=0,28 drop=0 lat=2,8/p95 4,1 ms cpu=19% mem=151MB outs=2 luma=0,17
+11-06 13:12:22.730 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6271 marker=6271 lastSeq=6442 gaps=26 latRender→leitura=6,9ms
+11-06 13:12:23.732 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6301 marker=6301 lastSeq=6472 gaps=26 latRender→leitura=7,1ms
+11-06 13:12:24.735 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6331 marker=6331 lastSeq=6502 gaps=26 latRender→leitura=6,9ms
+11-06 13:12:25.738 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6362 marker=6362 lastSeq=6533 gaps=26 latRender→leitura=7,1ms
+11-06 13:12:26.740 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6392 marker=6392 lastSeq=6563 gaps=26 latRender→leitura=6,3ms
+11-06 13:12:27.109 13947 13964 I NVC/engine: [metrics] src=30,5 out=30,5 fps min=29,6 max=31,1 sd=0,27 drop=0 lat=2,8/p95 4,0 ms cpu=34% mem=150MB outs=2 luma=0,18
+11-06 13:12:27.743 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6423 marker=6423 lastSeq=6594 gaps=26 latRender→leitura=6,9ms
+11-06 13:12:28.745 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6453 marker=6453 lastSeq=6624 gaps=26 latRender→leitura=7,2ms
+11-06 13:12:29.334 13947 13978 I NVC/engine: [output] saída 'ext-17939849350301-2' removida (entregues=6496, descartes=0)
+11-06 13:12:29.748 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6483 marker=6483 lastSeq=6654 gaps=26 latRender→leitura=5,3ms
+11-06 13:12:30.753 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=6514 marker=6514 lastSeq=6685 gaps=26 latRender→leitura=5,9ms
+11-06 13:12:31.759 14005 14005 I NVC-CONSUMER: STATS fps=29,8 frames=6544 marker=6544 lastSeq=6715 gaps=26 latRender→leitura=7,6ms
+11-06 13:12:32.305 13947 13964 I NVC/engine: [metrics] src=30,9 out=30,9 fps min=29,6 max=31,1 sd=0,24 drop=0 lat=2,9/p95 4,7 ms cpu=10% mem=125MB outs=1 luma=0,18
+11-06 13:12:32.763 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=6575 marker=6575 lastSeq=6746 gaps=26 latRender→leitura=8,0ms
+11-06 13:12:33.766 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6605 marker=6605 lastSeq=6776 gaps=26 latRender→leitura=6,9ms
+11-06 13:12:34.770 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=6636 marker=6636 lastSeq=6807 gaps=26 latRender→leitura=6,8ms
+11-06 13:12:35.774 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6666 marker=6666 lastSeq=6837 gaps=26 latRender→leitura=5,2ms
+11-06 13:12:36.778 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6696 marker=6696 lastSeq=6867 gaps=26 latRender→leitura=6,1ms
+11-06 13:12:37.517 13947 13964 I NVC/engine: [metrics] src=29,8 out=29,8 fps min=29,7 max=31,0 sd=0,24 drop=0 lat=2,9/p95 4,9 ms cpu=10% mem=125MB outs=1 luma=0,18
+11-06 13:12:37.784 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=6727 marker=6727 lastSeq=6898 gaps=26 latRender→leitura=6,7ms
+11-06 13:12:38.789 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=6756 marker=6756 lastSeq=6928 gaps=27 latRender→leitura=8,3ms
+11-06 13:12:39.795 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=6787 marker=6787 lastSeq=6959 gaps=27 latRender→leitura=8,5ms
+11-06 13:12:40.800 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6817 marker=6817 lastSeq=6989 gaps=27 latRender→leitura=7,6ms
+11-06 13:12:41.804 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=6848 marker=6848 lastSeq=7020 gaps=27 latRender→leitura=7,5ms
+11-06 13:12:42.809 14005 14005 I NVC-CONSUMER: STATS fps=27,9 frames=6876 marker=6876 lastSeq=7048 gaps=27 latRender→leitura=8,1ms
+11-06 13:12:42.830 13947 13964 I NVC/engine: [metrics] src=31,1 out=31,1 fps min=29,7 max=31,1 sd=0,27 drop=0 lat=2,7/p95 4,4 ms cpu=15% mem=125MB outs=1 luma=0,18
+11-06 13:12:43.813 14005 14005 I NVC-CONSUMER: STATS fps=32,9 frames=6909 marker=6908 lastSeq=7080 gaps=27 latRender→leitura=7,9ms
+11-06 13:12:44.818 14005 14005 I NVC-CONSUMER: STATS fps=26,8 frames=6936 marker=6935 lastSeq=7107 gaps=27 latRender→leitura=7,8ms
+11-06 13:12:45.823 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=6966 marker=6966 lastSeq=7138 gaps=27 latRender→leitura=7,3ms
+11-06 13:12:46.828 14005 14005 I NVC-CONSUMER: STATS fps=26,8 frames=6993 marker=6993 lastSeq=7165 gaps=27 latRender→leitura=6,5ms
+11-06 13:12:47.831 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7024 marker=7024 lastSeq=7196 gaps=27 latRender→leitura=4,5ms
+11-06 13:12:48.272 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=27,8 max=31,1 sd=0,53 drop=0 lat=2,6/p95 3,6 ms cpu=11% mem=125MB outs=1 luma=0,17
+11-06 13:12:48.835 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7054 marker=7054 lastSeq=7226 gaps=27 latRender→leitura=6,0ms
+11-06 13:12:49.840 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7084 marker=7084 lastSeq=7256 gaps=27 latRender→leitura=6,6ms
+11-06 13:12:50.843 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7115 marker=7115 lastSeq=7287 gaps=27 latRender→leitura=6,3ms
+11-06 13:12:51.847 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7145 marker=7145 lastSeq=7317 gaps=27 latRender→leitura=5,0ms
+11-06 13:12:52.850 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7176 marker=7176 lastSeq=7348 gaps=27 latRender→leitura=4,5ms
+11-06 13:12:53.514 13947 13964 I NVC/engine: [metrics] src=30,7 out=30,7 fps min=27,8 max=31,1 sd=0,56 drop=0 lat=2,5/p95 3,6 ms cpu=9% mem=125MB outs=1 luma=0,17
+11-06 13:12:53.854 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7206 marker=7206 lastSeq=7378 gaps=27 latRender→leitura=4,7ms
+11-06 13:12:54.858 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7236 marker=7236 lastSeq=7408 gaps=27 latRender→leitura=6,8ms
+11-06 13:12:55.862 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7267 marker=7267 lastSeq=7439 gaps=27 latRender→leitura=7,2ms
+11-06 13:12:56.866 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7297 marker=7297 lastSeq=7469 gaps=27 latRender→leitura=6,3ms
+11-06 13:12:57.870 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7328 marker=7328 lastSeq=7500 gaps=27 latRender→leitura=7,9ms
+11-06 13:12:58.786 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=27,8 max=31,1 sd=0,55 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:12:58.874 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7358 marker=7358 lastSeq=7530 gaps=27 latRender→leitura=7,0ms
+11-06 13:12:59.878 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7389 marker=7389 lastSeq=7561 gaps=27 latRender→leitura=6,4ms
+11-06 13:13:00.881 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=7418 marker=7418 lastSeq=7590 gaps=27 latRender→leitura=6,8ms
+11-06 13:13:01.886 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7449 marker=7449 lastSeq=7621 gaps=27 latRender→leitura=6,5ms
+11-06 13:13:02.888 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7480 marker=7480 lastSeq=7652 gaps=27 latRender→leitura=6,0ms
+11-06 13:13:03.891 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7510 marker=7510 lastSeq=7682 gaps=27 latRender→leitura=6,5ms
+11-06 13:13:04.070 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=27,8 max=31,1 sd=0,55 drop=0 lat=2,9/p95 4,1 ms cpu=13% mem=124MB outs=1 luma=0,18
+11-06 13:13:04.893 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7541 marker=7541 lastSeq=7713 gaps=27 latRender→leitura=6,7ms
+11-06 13:13:05.897 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7571 marker=7571 lastSeq=7743 gaps=27 latRender→leitura=6,5ms
+11-06 13:13:06.900 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7601 marker=7601 lastSeq=7773 gaps=27 latRender→leitura=6,0ms
+11-06 13:13:07.903 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7632 marker=7632 lastSeq=7804 gaps=27 latRender→leitura=6,5ms
+11-06 13:13:08.907 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=7661 marker=7661 lastSeq=7834 gaps=28 latRender→leitura=7,3ms
+11-06 13:13:09.481 13947 13964 I NVC/engine: [metrics] src=30,9 out=30,9 fps min=27,8 max=31,1 sd=0,56 drop=0 lat=2,7/p95 4,3 ms cpu=19% mem=124MB outs=1 luma=0,17
+11-06 13:13:09.910 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7692 marker=7692 lastSeq=7865 gaps=28 latRender→leitura=7,4ms
+11-06 13:13:10.915 14005 14005 I NVC-CONSUMER: STATS fps=26,9 frames=7719 marker=7719 lastSeq=7892 gaps=28 latRender→leitura=7,8ms
+11-06 13:13:11.920 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=7748 marker=7748 lastSeq=7922 gaps=29 latRender→leitura=7,1ms
+11-06 13:13:12.925 14005 14005 I NVC-CONSUMER: STATS fps=20,9 frames=7769 marker=7769 lastSeq=7943 gaps=29 latRender→leitura=7,4ms
+11-06 13:13:13.928 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7799 marker=7799 lastSeq=7973 gaps=29 latRender→leitura=5,9ms
+11-06 13:13:14.932 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=7829 marker=7829 lastSeq=8003 gaps=29 latRender→leitura=7,9ms
+11-06 13:13:15.010 13947 13964 I NVC/engine: [metrics] src=31,0 out=31,0 fps min=20,9 max=31,1 sd=1,34 drop=0 lat=2,7/p95 5,1 ms cpu=19% mem=124MB outs=1 luma=0,18
+11-06 13:13:15.938 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=7858 marker=7858 lastSeq=8034 gaps=31 latRender→leitura=8,1ms
+11-06 13:13:16.943 14005 14005 I NVC-CONSUMER: STATS fps=26,9 frames=7885 marker=7885 lastSeq=8061 gaps=31 latRender→leitura=8,0ms
+11-06 13:13:17.945 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=7916 marker=7915 lastSeq=8091 gaps=31 latRender→leitura=8,4ms
+11-06 13:13:18.950 14005 14005 I NVC-CONSUMER: STATS fps=26,9 frames=7943 marker=7942 lastSeq=8118 gaps=31 latRender→leitura=8,4ms
+11-06 13:13:19.955 14005 14005 I NVC-CONSUMER: STATS fps=29,8 frames=7973 marker=7973 lastSeq=8149 gaps=31 latRender→leitura=8,4ms
+11-06 13:13:20.553 13947 13964 I NVC/engine: [metrics] src=29,7 out=29,7 fps min=20,9 max=31,1 sd=1,39 drop=0 lat=2,8/p95 4,4 ms cpu=20% mem=124MB outs=1 luma=0,18
+11-06 13:13:20.966 14005 14005 I NVC-CONSUMER: STATS fps=29,6 frames=8003 marker=8003 lastSeq=8180 gaps=32 latRender→leitura=7,8ms
+11-06 13:13:21.969 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8033 marker=8033 lastSeq=8210 gaps=32 latRender→leitura=4,4ms
+11-06 13:13:22.974 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=8064 marker=8064 lastSeq=8241 gaps=32 latRender→leitura=6,0ms
+11-06 13:13:23.978 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8094 marker=8094 lastSeq=8271 gaps=32 latRender→leitura=6,7ms
+11-06 13:13:24.982 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8124 marker=8124 lastSeq=8301 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:25.804 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=20,9 max=31,1 sd=1,40 drop=0 lat=2,7/p95 4,2 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:13:25.985 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8155 marker=8155 lastSeq=8332 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:26.989 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8185 marker=8185 lastSeq=8362 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:27.993 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8216 marker=8216 lastSeq=8393 gaps=32 latRender→leitura=6,2ms
+11-06 13:13:28.996 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8246 marker=8246 lastSeq=8423 gaps=32 latRender→leitura=7,1ms
+11-06 13:13:29.998 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8276 marker=8276 lastSeq=8453 gaps=32 latRender→leitura=6,9ms
+11-06 13:13:31.001 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8307 marker=8307 lastSeq=8484 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:31.082 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=20,9 max=31,1 sd=1,40 drop=0 lat=2,6/p95 4,0 ms cpu=15% mem=124MB outs=1 luma=0,16
+11-06 13:13:32.005 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8337 marker=8337 lastSeq=8514 gaps=32 latRender→leitura=6,7ms
+11-06 13:13:33.007 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8368 marker=8368 lastSeq=8545 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:34.010 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8398 marker=8398 lastSeq=8575 gaps=32 latRender→leitura=5,5ms
+11-06 13:13:35.013 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8428 marker=8428 lastSeq=8605 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:36.016 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8459 marker=8459 lastSeq=8636 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:36.373 13947 13964 I NVC/engine: [metrics] src=30,1 out=30,1 fps min=20,9 max=31,1 sd=1,39 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:13:37.019 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8489 marker=8489 lastSeq=8666 gaps=32 latRender→leitura=6,3ms
+11-06 13:13:38.022 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8520 marker=8520 lastSeq=8697 gaps=32 latRender→leitura=5,8ms
+11-06 13:13:39.025 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8550 marker=8550 lastSeq=8727 gaps=32 latRender→leitura=6,3ms
+11-06 13:13:40.028 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8580 marker=8580 lastSeq=8757 gaps=32 latRender→leitura=7,0ms
+11-06 13:13:41.031 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8611 marker=8611 lastSeq=8788 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:41.653 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=20,9 max=31,1 sd=1,39 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:13:42.035 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8641 marker=8641 lastSeq=8818 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:43.038 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8672 marker=8671 lastSeq=8848 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:44.042 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8702 marker=8702 lastSeq=8879 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:45.046 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8732 marker=8732 lastSeq=8909 gaps=32 latRender→leitura=6,8ms
+11-06 13:13:46.050 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8763 marker=8763 lastSeq=8940 gaps=32 latRender→leitura=6,4ms
+11-06 13:13:46.932 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=20,9 max=31,1 sd=1,38 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:13:47.055 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8793 marker=8793 lastSeq=8970 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:48.058 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8824 marker=8824 lastSeq=9001 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:49.062 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8854 marker=8854 lastSeq=9031 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:50.066 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8884 marker=8884 lastSeq=9061 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:51.070 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8915 marker=8915 lastSeq=9092 gaps=32 latRender→leitura=6,9ms
+11-06 13:13:52.074 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=8945 marker=8945 lastSeq=9122 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:52.209 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=20,9 max=31,1 sd=1,32 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:13:53.078 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=8976 marker=8976 lastSeq=9153 gaps=32 latRender→leitura=6,4ms
+11-06 13:13:54.082 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9006 marker=9006 lastSeq=9183 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:55.086 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=9037 marker=9037 lastSeq=9214 gaps=32 latRender→leitura=6,3ms
+11-06 13:13:56.090 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9067 marker=9067 lastSeq=9244 gaps=32 latRender→leitura=6,9ms
+11-06 13:13:57.094 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9098 marker=9097 lastSeq=9274 gaps=32 latRender→leitura=6,6ms
+11-06 13:13:57.492 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=20,9 max=31,0 sd=1,31 drop=0 lat=2,7/p95 3,7 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:13:58.097 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9128 marker=9128 lastSeq=9305 gaps=32 latRender→leitura=6,5ms
+11-06 13:13:59.102 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9158 marker=9158 lastSeq=9335 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:00.105 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9189 marker=9189 lastSeq=9366 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:01.110 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9219 marker=9219 lastSeq=9396 gaps=32 latRender→leitura=7,0ms
+11-06 13:14:02.112 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9250 marker=9250 lastSeq=9427 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:02.773 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=20,9 max=31,0 sd=1,32 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:14:03.115 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9280 marker=9280 lastSeq=9457 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:04.118 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9310 marker=9310 lastSeq=9487 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:05.122 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9341 marker=9341 lastSeq=9518 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:06.127 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9371 marker=9371 lastSeq=9548 gaps=32 latRender→leitura=7,0ms
+11-06 13:14:07.130 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9402 marker=9402 lastSeq=9579 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:08.046 13947 13964 I NVC/engine: [metrics] src=30,6 out=30,6 fps min=20,9 max=31,0 sd=1,32 drop=0 lat=2,7/p95 4,1 ms cpu=13% mem=124MB outs=1 luma=0,18
+11-06 13:14:08.134 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9432 marker=9432 lastSeq=9609 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:09.138 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9462 marker=9462 lastSeq=9639 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:10.141 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9492 marker=9492 lastSeq=9669 gaps=32 latRender→leitura=6,8ms
+11-06 13:14:11.144 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9523 marker=9523 lastSeq=9700 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:12.147 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9554 marker=9554 lastSeq=9731 gaps=32 latRender→leitura=6,8ms
+11-06 13:14:13.151 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9584 marker=9584 lastSeq=9761 gaps=32 latRender→leitura=6,8ms
+11-06 13:14:13.316 13947 13964 I NVC/engine: [metrics] src=29,7 out=29,7 fps min=20,9 max=31,0 sd=1,31 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:14:14.155 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9614 marker=9614 lastSeq=9791 gaps=32 latRender→leitura=7,0ms
+11-06 13:14:15.159 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9645 marker=9645 lastSeq=9822 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:16.161 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9675 marker=9675 lastSeq=9852 gaps=32 latRender→leitura=6,9ms
+11-06 13:14:17.163 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9706 marker=9706 lastSeq=9883 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:18.166 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9736 marker=9736 lastSeq=9913 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:18.598 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=27,8 max=31,1 sd=0,50 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:14:19.169 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9766 marker=9766 lastSeq=9943 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:20.173 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9797 marker=9797 lastSeq=9974 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:21.176 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9827 marker=9827 lastSeq=10004 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:22.179 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9858 marker=9858 lastSeq=10035 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:23.183 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9888 marker=9888 lastSeq=10065 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:23.884 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,22 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:14:24.186 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9918 marker=9918 lastSeq=10095 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:25.190 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=9949 marker=9949 lastSeq=10126 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:26.193 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=9979 marker=9979 lastSeq=10156 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:27.196 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10010 marker=10010 lastSeq=10187 gaps=32 latRender→leitura=6,9ms
+11-06 13:14:28.199 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10040 marker=10040 lastSeq=10217 gaps=32 latRender→leitura=6,2ms
+11-06 13:14:29.165 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,21 drop=0 lat=2,8/p95 3,7 ms cpu=25% mem=124MB outs=1 luma=0,16
+11-06 13:14:29.202 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10071 marker=10070 lastSeq=10247 gaps=32 latRender→leitura=7,2ms
+11-06 13:14:30.205 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=10100 marker=10100 lastSeq=10277 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:31.209 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10131 marker=10131 lastSeq=10308 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:32.212 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10162 marker=10162 lastSeq=10339 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:33.214 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10192 marker=10192 lastSeq=10369 gaps=32 latRender→leitura=7,0ms
+11-06 13:14:34.218 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10222 marker=10222 lastSeq=10399 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:34.446 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,21 drop=0 lat=2,8/p95 4,0 ms cpu=13% mem=124MB outs=1 luma=0,17
+11-06 13:14:35.222 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10253 marker=10253 lastSeq=10430 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:36.225 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10283 marker=10283 lastSeq=10460 gaps=32 latRender→leitura=6,3ms
+11-06 13:14:37.227 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10314 marker=10314 lastSeq=10491 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:38.231 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10344 marker=10344 lastSeq=10521 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:39.234 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10374 marker=10374 lastSeq=10551 gaps=32 latRender→leitura=6,8ms
+11-06 13:14:39.718 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,21 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:14:40.237 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10405 marker=10405 lastSeq=10582 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:41.241 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10435 marker=10435 lastSeq=10612 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:42.245 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10466 marker=10466 lastSeq=10643 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:43.249 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10496 marker=10496 lastSeq=10673 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:44.253 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10527 marker=10527 lastSeq=10704 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:44.997 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,21 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:14:45.258 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10557 marker=10557 lastSeq=10734 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:46.261 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10587 marker=10587 lastSeq=10764 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:47.266 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=10618 marker=10618 lastSeq=10795 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:48.270 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10648 marker=10648 lastSeq=10825 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:49.275 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=10679 marker=10679 lastSeq=10856 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:50.278 14005 14005 I NVC-CONSUMER: STATS fps=27,9 frames=10707 marker=10707 lastSeq=10884 gaps=32 latRender→leitura=6,4ms
+11-06 13:14:50.279 13947 13964 I NVC/engine: [metrics] src=29,5 out=29,5 fps min=29,5 max=31,1 sd=0,23 drop=0 lat=2,7/p95 4,1 ms cpu=13% mem=124MB outs=1 luma=0,17
+11-06 13:14:51.281 14005 14005 I NVC-CONSUMER: STATS fps=32,9 frames=10740 marker=10739 lastSeq=10916 gaps=32 latRender→leitura=6,7ms
+11-06 13:14:52.284 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10770 marker=10770 lastSeq=10947 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:53.287 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10800 marker=10800 lastSeq=10977 gaps=32 latRender→leitura=6,3ms
+11-06 13:14:54.291 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10831 marker=10831 lastSeq=11008 gaps=32 latRender→leitura=6,8ms
+11-06 13:14:55.294 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10861 marker=10861 lastSeq=11038 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:55.566 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,25 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,18
+11-06 13:14:56.298 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10891 marker=10891 lastSeq=11068 gaps=32 latRender→leitura=6,5ms
+11-06 13:14:57.302 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=10922 marker=10922 lastSeq=11099 gaps=32 latRender→leitura=6,3ms
+11-06 13:14:58.306 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=10952 marker=10952 lastSeq=11129 gaps=32 latRender→leitura=6,6ms
+11-06 13:14:59.311 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=10983 marker=10983 lastSeq=11160 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:00.314 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11013 marker=11013 lastSeq=11190 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:00.853 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,25 drop=0 lat=2,7/p95 3,8 ms cpu=14% mem=124MB outs=1 luma=0,16
+11-06 13:15:01.319 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=11044 marker=11044 lastSeq=11221 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:02.322 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11074 marker=11074 lastSeq=11251 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:03.325 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11105 marker=11104 lastSeq=11281 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:04.328 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11135 marker=11135 lastSeq=11312 gaps=32 latRender→leitura=6,9ms
+11-06 13:15:05.331 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11165 marker=11165 lastSeq=11342 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:06.127 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,25 drop=0 lat=2,6/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:15:06.335 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11196 marker=11196 lastSeq=11373 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:07.339 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11226 marker=11226 lastSeq=11403 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:08.342 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11256 marker=11256 lastSeq=11433 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:09.347 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=11287 marker=11287 lastSeq=11464 gaps=32 latRender→leitura=7,0ms
+11-06 13:15:10.349 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=11316 marker=11316 lastSeq=11493 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:11.352 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=11348 marker=11348 lastSeq=11525 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:11.414 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,24 drop=0 lat=2,7/p95 4,0 ms cpu=13% mem=124MB outs=1 luma=0,17
+11-06 13:15:12.356 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11378 marker=11378 lastSeq=11555 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:13.359 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11409 marker=11409 lastSeq=11586 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:14.363 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11439 marker=11439 lastSeq=11616 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:15.368 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11469 marker=11469 lastSeq=11646 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:16.371 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11500 marker=11500 lastSeq=11677 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:16.693 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,23 drop=0 lat=2,7/p95 3,9 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:15:17.374 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11530 marker=11530 lastSeq=11707 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:18.376 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11561 marker=11561 lastSeq=11738 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:19.380 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11591 marker=11591 lastSeq=11768 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:20.383 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11621 marker=11621 lastSeq=11798 gaps=32 latRender→leitura=7,0ms
+11-06 13:15:21.388 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=11652 marker=11652 lastSeq=11829 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:21.965 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:15:22.390 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11682 marker=11682 lastSeq=11859 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:23.394 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11713 marker=11713 lastSeq=11890 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:24.396 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11743 marker=11743 lastSeq=11920 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:25.400 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11773 marker=11773 lastSeq=11950 gaps=32 latRender→leitura=6,9ms
+11-06 13:15:26.403 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11804 marker=11804 lastSeq=11981 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:27.252 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,7/p95 4,0 ms cpu=13% mem=125MB outs=1 luma=0,18
+11-06 13:15:27.408 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11834 marker=11834 lastSeq=12011 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:28.410 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11865 marker=11865 lastSeq=12042 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:29.414 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11895 marker=11895 lastSeq=12072 gaps=32 latRender→leitura=7,5ms
+11-06 13:15:30.418 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11925 marker=11924 lastSeq=12101 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:31.421 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=11956 marker=11956 lastSeq=12133 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:32.424 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=11986 marker=11986 lastSeq=12163 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:32.524 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,7/p95 4,1 ms cpu=15% mem=124MB outs=1 luma=0,17
+11-06 13:15:33.428 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12017 marker=12017 lastSeq=12194 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:34.430 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12047 marker=12047 lastSeq=12224 gaps=32 latRender→leitura=6,2ms
+11-06 13:15:35.433 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12077 marker=12077 lastSeq=12254 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:36.437 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12108 marker=12108 lastSeq=12285 gaps=32 latRender→leitura=6,9ms
+11-06 13:15:37.439 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12138 marker=12138 lastSeq=12315 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:37.810 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:15:38.442 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12169 marker=12169 lastSeq=12346 gaps=32 latRender→leitura=6,4ms
+11-06 13:15:39.446 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12199 marker=12199 lastSeq=12376 gaps=32 latRender→leitura=6,5ms
+11-06 13:15:40.449 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12229 marker=12229 lastSeq=12406 gaps=32 latRender→leitura=6,6ms
+11-06 13:15:41.452 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12260 marker=12260 lastSeq=12437 gaps=32 latRender→leitura=6,8ms
+11-06 13:15:42.454 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12290 marker=12290 lastSeq=12467 gaps=32 latRender→leitura=6,9ms
+11-06 13:15:43.101 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,7/p95 4,1 ms cpu=15% mem=124MB outs=1 luma=0,17
+11-06 13:15:43.457 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12321 marker=12321 lastSeq=12498 gaps=32 latRender→leitura=7,0ms
+11-06 13:15:44.460 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12351 marker=12351 lastSeq=12528 gaps=32 latRender→leitura=6,7ms
+11-06 13:15:45.463 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12381 marker=12381 lastSeq=12558 gaps=32 latRender→leitura=6,8ms
+11-06 13:15:46.467 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12411 marker=12411 lastSeq=12589 gaps=33 latRender→leitura=7,1ms
+11-06 13:15:47.471 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12441 marker=12441 lastSeq=12619 gaps=33 latRender→leitura=6,6ms
+11-06 13:15:48.381 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,0 sd=0,16 drop=0 lat=2,8/p95 4,1 ms cpu=15% mem=125MB outs=1 luma=0,17
+11-06 13:15:48.474 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12472 marker=12472 lastSeq=12650 gaps=33 latRender→leitura=6,8ms
+11-06 13:15:49.478 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=12501 marker=12501 lastSeq=12680 gaps=34 latRender→leitura=6,9ms
+11-06 13:15:50.480 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12531 marker=12531 lastSeq=12710 gaps=34 latRender→leitura=6,7ms
+11-06 13:15:51.484 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12562 marker=12562 lastSeq=12741 gaps=34 latRender→leitura=6,5ms
+11-06 13:15:52.487 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12592 marker=12592 lastSeq=12771 gaps=34 latRender→leitura=6,5ms
+11-06 13:15:53.491 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12623 marker=12623 lastSeq=12802 gaps=34 latRender→leitura=6,6ms
+11-06 13:15:53.677 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,16 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:15:54.495 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12653 marker=12653 lastSeq=12832 gaps=34 latRender→leitura=6,6ms
+11-06 13:15:55.498 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12684 marker=12683 lastSeq=12862 gaps=34 latRender→leitura=6,9ms
+11-06 13:15:56.502 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12714 marker=12714 lastSeq=12893 gaps=34 latRender→leitura=6,6ms
+11-06 13:15:57.505 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12744 marker=12744 lastSeq=12923 gaps=34 latRender→leitura=6,5ms
+11-06 13:15:58.507 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12775 marker=12775 lastSeq=12954 gaps=34 latRender→leitura=6,5ms
+11-06 13:15:58.958 13947 13964 I NVC/engine: [metrics] src=30,4 out=30,4 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:15:59.511 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12805 marker=12805 lastSeq=12984 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:00.513 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12835 marker=12835 lastSeq=13014 gaps=34 latRender→leitura=6,8ms
+11-06 13:16:01.517 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12866 marker=12866 lastSeq=13045 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:02.522 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12896 marker=12896 lastSeq=13075 gaps=34 latRender→leitura=6,6ms
+11-06 13:16:03.525 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12927 marker=12927 lastSeq=13106 gaps=34 latRender→leitura=6,6ms
+11-06 13:16:04.235 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:16:04.529 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=12957 marker=12957 lastSeq=13136 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:05.533 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=12988 marker=12988 lastSeq=13167 gaps=34 latRender→leitura=6,8ms
+11-06 13:16:06.536 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13018 marker=13018 lastSeq=13197 gaps=34 latRender→leitura=6,6ms
+11-06 13:16:07.540 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13048 marker=13048 lastSeq=13227 gaps=34 latRender→leitura=6,7ms
+11-06 13:16:08.544 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13079 marker=13079 lastSeq=13258 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:09.518 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:16:09.549 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13109 marker=13109 lastSeq=13288 gaps=34 latRender→leitura=6,6ms
+11-06 13:16:10.553 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13139 marker=13139 lastSeq=13318 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:11.556 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13170 marker=13170 lastSeq=13349 gaps=34 latRender→leitura=6,9ms
+11-06 13:16:12.559 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13200 marker=13200 lastSeq=13379 gaps=34 latRender→leitura=6,4ms
+11-06 13:16:13.562 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13231 marker=13231 lastSeq=13410 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:14.566 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13261 marker=13261 lastSeq=13440 gaps=34 latRender→leitura=6,6ms
+11-06 13:16:14.799 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,7/p95 4,0 ms cpu=15% mem=124MB outs=1 luma=0,17
+11-06 13:16:15.570 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13292 marker=13292 lastSeq=13471 gaps=34 latRender→leitura=6,4ms
+11-06 13:16:16.575 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13322 marker=13322 lastSeq=13501 gaps=34 latRender→leitura=6,8ms
+11-06 13:16:17.578 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13353 marker=13353 lastSeq=13532 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:18.583 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13383 marker=13383 lastSeq=13562 gaps=34 latRender→leitura=6,8ms
+11-06 13:16:19.586 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13413 marker=13413 lastSeq=13592 gaps=34 latRender→leitura=6,5ms
+11-06 13:16:20.094 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:16:20.590 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13444 marker=13444 lastSeq=13623 gaps=34 latRender→leitura=6,7ms
+11-06 13:16:21.595 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=13473 marker=13473 lastSeq=13653 gaps=35 latRender→leitura=7,2ms
+11-06 13:16:22.598 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13504 marker=13504 lastSeq=13684 gaps=35 latRender→leitura=6,6ms
+11-06 13:16:23.602 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13534 marker=13534 lastSeq=13714 gaps=35 latRender→leitura=6,6ms
+11-06 13:16:24.606 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13564 marker=13564 lastSeq=13745 gaps=36 latRender→leitura=7,0ms
+11-06 13:16:25.374 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,0 sd=0,12 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:16:25.610 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13594 marker=13594 lastSeq=13775 gaps=36 latRender→leitura=6,8ms
+11-06 13:16:26.615 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13624 marker=13624 lastSeq=13805 gaps=36 latRender→leitura=7,0ms
+11-06 13:16:27.619 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13654 marker=13654 lastSeq=13836 gaps=37 latRender→leitura=7,0ms
+11-06 13:16:28.623 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13684 marker=13684 lastSeq=13866 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:29.626 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13715 marker=13715 lastSeq=13897 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:30.630 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13745 marker=13745 lastSeq=13927 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:30.667 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,9/p95 4,2 ms cpu=28% mem=124MB outs=1 luma=0,17
+11-06 13:16:31.634 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13775 marker=13775 lastSeq=13957 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:32.637 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13806 marker=13806 lastSeq=13988 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:33.641 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13836 marker=13836 lastSeq=14018 gaps=37 latRender→leitura=6,9ms
+11-06 13:16:34.646 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=13867 marker=13867 lastSeq=14049 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:35.650 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13897 marker=13897 lastSeq=14079 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:35.948 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:16:36.653 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=13928 marker=13928 lastSeq=14110 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:37.658 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13958 marker=13958 lastSeq=14140 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:38.662 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=13988 marker=13988 lastSeq=14170 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:39.666 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=14019 marker=14019 lastSeq=14201 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:40.671 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14049 marker=14049 lastSeq=14231 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:41.229 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,7/p95 3,9 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:16:41.673 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14080 marker=14080 lastSeq=14262 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:42.676 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14110 marker=14110 lastSeq=14292 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:43.680 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14141 marker=14141 lastSeq=14323 gaps=37 latRender→leitura=6,9ms
+11-06 13:16:44.682 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14171 marker=14171 lastSeq=14353 gaps=37 latRender→leitura=6,4ms
+11-06 13:16:45.686 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14201 marker=14201 lastSeq=14383 gaps=37 latRender→leitura=6,4ms
+11-06 13:16:46.511 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=125MB outs=1 luma=0,18
+11-06 13:16:46.689 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14232 marker=14232 lastSeq=14414 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:47.691 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14262 marker=14262 lastSeq=14444 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:48.694 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14293 marker=14293 lastSeq=14475 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:49.697 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14323 marker=14323 lastSeq=14505 gaps=37 latRender→leitura=6,4ms
+11-06 13:16:50.701 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14353 marker=14353 lastSeq=14535 gaps=37 latRender→leitura=6,4ms
+11-06 13:16:51.704 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14384 marker=14384 lastSeq=14566 gaps=37 latRender→leitura=6,6ms
+11-06 13:16:51.794 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,16 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:16:52.709 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14414 marker=14414 lastSeq=14596 gaps=37 latRender→leitura=6,4ms
+11-06 13:16:53.712 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14445 marker=14445 lastSeq=14627 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:54.715 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14475 marker=14475 lastSeq=14657 gaps=37 latRender→leitura=7,1ms
+11-06 13:16:55.718 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14505 marker=14505 lastSeq=14687 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:56.722 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14536 marker=14536 lastSeq=14718 gaps=37 latRender→leitura=6,5ms
+11-06 13:16:57.075 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,13 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:16:57.726 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14566 marker=14566 lastSeq=14748 gaps=37 latRender→leitura=6,3ms
+11-06 13:16:58.728 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14597 marker=14597 lastSeq=14779 gaps=37 latRender→leitura=6,7ms
+11-06 13:16:59.731 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14627 marker=14627 lastSeq=14809 gaps=37 latRender→leitura=6,8ms
+11-06 13:17:00.734 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14657 marker=14657 lastSeq=14839 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:01.738 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14688 marker=14688 lastSeq=14870 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:02.355 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,13 drop=0 lat=2,7/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:17:02.742 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14718 marker=14718 lastSeq=14900 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:03.746 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14749 marker=14749 lastSeq=14931 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:04.748 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14779 marker=14779 lastSeq=14961 gaps=37 latRender→leitura=7,0ms
+11-06 13:17:05.751 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14809 marker=14809 lastSeq=14991 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:06.755 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14840 marker=14840 lastSeq=15022 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:07.635 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,13 drop=0 lat=2,7/p95 4,0 ms cpu=13% mem=124MB outs=1 luma=0,17
+11-06 13:17:07.757 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=14870 marker=14870 lastSeq=15052 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:08.760 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14901 marker=14901 lastSeq=15083 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:09.764 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=14930 marker=14930 lastSeq=15112 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:10.766 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14961 marker=14961 lastSeq=15143 gaps=37 latRender→leitura=7,0ms
+11-06 13:17:11.769 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=14992 marker=14992 lastSeq=15174 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:12.772 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15022 marker=15022 lastSeq=15204 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:12.917 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,13 drop=0 lat=2,6/p95 4,0 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:17:13.774 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15053 marker=15052 lastSeq=15234 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:14.778 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15083 marker=15083 lastSeq=15265 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:15.780 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15113 marker=15113 lastSeq=15295 gaps=37 latRender→leitura=6,7ms
+11-06 13:17:16.783 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15144 marker=15144 lastSeq=15326 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:17.787 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15174 marker=15174 lastSeq=15356 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:18.197 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,13 drop=0 lat=2,6/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,18
+11-06 13:17:18.790 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15205 marker=15205 lastSeq=15387 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:19.794 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15235 marker=15235 lastSeq=15417 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:20.797 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15265 marker=15265 lastSeq=15447 gaps=37 latRender→leitura=6,9ms
+11-06 13:17:21.801 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15296 marker=15296 lastSeq=15478 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:22.805 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15326 marker=15326 lastSeq=15508 gaps=37 latRender→leitura=6,6ms
+11-06 13:17:23.475 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,12 drop=0 lat=2,6/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:17:23.809 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15357 marker=15356 lastSeq=15538 gaps=37 latRender→leitura=6,7ms
+11-06 13:17:24.812 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15387 marker=15387 lastSeq=15569 gaps=37 latRender→leitura=6,6ms
+11-06 13:17:25.816 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15417 marker=15417 lastSeq=15599 gaps=37 latRender→leitura=6,9ms
+11-06 13:17:26.820 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15448 marker=15448 lastSeq=15630 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:27.825 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15478 marker=15478 lastSeq=15660 gaps=37 latRender→leitura=6,7ms
+11-06 13:17:28.758 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=31,1 sd=0,12 drop=0 lat=2,7/p95 4,1 ms cpu=14% mem=125MB outs=1 luma=0,16
+11-06 13:17:28.828 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15509 marker=15509 lastSeq=15691 gaps=37 latRender→leitura=6,7ms
+11-06 13:17:29.831 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15539 marker=15539 lastSeq=15721 gaps=37 latRender→leitura=6,4ms
+11-06 13:17:30.835 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15569 marker=15569 lastSeq=15751 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:31.838 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15600 marker=15600 lastSeq=15782 gaps=37 latRender→leitura=7,2ms
+11-06 13:17:32.842 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15630 marker=15630 lastSeq=15812 gaps=37 latRender→leitura=6,5ms
+11-06 13:17:33.845 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15661 marker=15661 lastSeq=15843 gaps=37 latRender→leitura=6,6ms
+11-06 13:17:34.038 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=30,1 max=30,7 sd=0,08 drop=0 lat=2,8/p95 4,0 ms cpu=13% mem=124MB outs=1 luma=0,18
+11-06 13:17:34.848 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=15690 marker=15690 lastSeq=15873 gaps=38 latRender→leitura=6,4ms
+11-06 13:17:35.852 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15721 marker=15720 lastSeq=15903 gaps=38 latRender→leitura=6,6ms
+11-06 13:17:36.856 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15751 marker=15751 lastSeq=15934 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:37.860 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15781 marker=15781 lastSeq=15964 gaps=38 latRender→leitura=6,4ms
+11-06 13:17:38.864 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=15812 marker=15812 lastSeq=15995 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:39.308 13947 13964 I NVC/engine: [metrics] src=30,4 out=30,4 fps min=30,1 max=30,7 sd=0,09 drop=0 lat=2,8/p95 3,7 ms cpu=13% mem=124MB outs=1 luma=0,18
+11-06 13:17:39.868 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15842 marker=15842 lastSeq=16025 gaps=38 latRender→leitura=6,9ms
+11-06 13:17:40.871 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15873 marker=15873 lastSeq=16056 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:41.876 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15903 marker=15903 lastSeq=16086 gaps=38 latRender→leitura=6,6ms
+11-06 13:17:42.880 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15933 marker=15933 lastSeq=16116 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:43.884 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=15964 marker=15964 lastSeq=16147 gaps=38 latRender→leitura=6,6ms
+11-06 13:17:44.582 13947 13964 I NVC/engine: [metrics] src=29,7 out=29,7 fps min=29,7 max=30,7 sd=0,12 drop=0 lat=2,7/p95 3,6 ms cpu=13% mem=124MB outs=1 luma=0,17
+11-06 13:17:44.889 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=15994 marker=15994 lastSeq=16177 gaps=38 latRender→leitura=7,2ms
+11-06 13:17:45.893 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16025 marker=16025 lastSeq=16208 gaps=38 latRender→leitura=6,4ms
+11-06 13:17:46.896 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16055 marker=16055 lastSeq=16238 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:47.900 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16086 marker=16086 lastSeq=16269 gaps=38 latRender→leitura=6,6ms
+11-06 13:17:48.903 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16116 marker=16116 lastSeq=16299 gaps=38 latRender→leitura=6,4ms
+11-06 13:17:49.879 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,0 sd=0,15 drop=0 lat=2,7/p95 3,6 ms cpu=14% mem=125MB outs=1 luma=0,18
+11-06 13:17:49.907 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16146 marker=16146 lastSeq=16329 gaps=38 latRender→leitura=6,7ms
+11-06 13:17:50.911 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16176 marker=16176 lastSeq=16359 gaps=38 latRender→leitura=6,4ms
+11-06 13:17:51.914 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16207 marker=16207 lastSeq=16390 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:52.919 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=16238 marker=16238 lastSeq=16421 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:53.922 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16268 marker=16268 lastSeq=16451 gaps=38 latRender→leitura=6,7ms
+11-06 13:17:54.925 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16299 marker=16298 lastSeq=16481 gaps=38 latRender→leitura=6,5ms
+11-06 13:17:55.175 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,7 max=31,0 sd=0,16 drop=0 lat=2,7/p95 3,6 ms cpu=13% mem=125MB outs=1 luma=0,17
+11-06 13:17:55.929 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=16328 marker=16328 lastSeq=16512 gaps=39 latRender→leitura=7,1ms
+11-06 13:17:56.933 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16358 marker=16358 lastSeq=16542 gaps=39 latRender→leitura=6,5ms
+11-06 13:17:57.938 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=16389 marker=16389 lastSeq=16573 gaps=39 latRender→leitura=6,5ms
+11-06 13:17:58.942 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16419 marker=16419 lastSeq=16603 gaps=39 latRender→leitura=6,5ms
+11-06 13:17:59.946 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16450 marker=16450 lastSeq=16634 gaps=39 latRender→leitura=6,7ms
+11-06 13:18:00.459 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,2 sd=0,19 drop=0 lat=2,8/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,17
+11-06 13:18:00.949 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16480 marker=16480 lastSeq=16664 gaps=39 latRender→leitura=7,1ms
+11-06 13:18:01.951 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16510 marker=16510 lastSeq=16694 gaps=39 latRender→leitura=6,7ms
+11-06 13:18:02.953 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16541 marker=16541 lastSeq=16725 gaps=39 latRender→leitura=6,8ms
+11-06 13:18:03.957 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16571 marker=16571 lastSeq=16755 gaps=39 latRender→leitura=6,9ms
+11-06 13:18:04.960 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16601 marker=16601 lastSeq=16786 gaps=40 latRender→leitura=6,6ms
+11-06 13:18:05.764 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,2 sd=0,21 drop=0 lat=2,8/p95 4,0 ms cpu=16% mem=124MB outs=1 luma=0,17
+11-06 13:18:05.963 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16631 marker=16631 lastSeq=16816 gaps=40 latRender→leitura=6,9ms
+11-06 13:18:06.967 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16661 marker=16661 lastSeq=16846 gaps=40 latRender→leitura=6,8ms
+11-06 13:18:07.970 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16692 marker=16692 lastSeq=16877 gaps=40 latRender→leitura=6,7ms
+11-06 13:18:08.973 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16722 marker=16722 lastSeq=16907 gaps=40 latRender→leitura=6,6ms
+11-06 13:18:09.975 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16752 marker=16752 lastSeq=16937 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:10.979 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16783 marker=16783 lastSeq=16968 gaps=40 latRender→leitura=6,4ms
+11-06 13:18:11.050 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,2 sd=0,23 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:18:11.983 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16813 marker=16813 lastSeq=16998 gaps=40 latRender→leitura=6,8ms
+11-06 13:18:12.987 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16844 marker=16844 lastSeq=17029 gaps=40 latRender→leitura=6,4ms
+11-06 13:18:13.990 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16874 marker=16874 lastSeq=17059 gaps=40 latRender→leitura=6,7ms
+11-06 13:18:14.993 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16905 marker=16905 lastSeq=17090 gaps=40 latRender→leitura=6,2ms
+11-06 13:18:15.996 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16935 marker=16935 lastSeq=17120 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:16.335 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,7/p95 4,0 ms cpu=15% mem=124MB outs=1 luma=0,17
+11-06 13:18:16.999 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=16965 marker=16965 lastSeq=17150 gaps=40 latRender→leitura=6,8ms
+11-06 13:18:18.003 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=16996 marker=16996 lastSeq=17181 gaps=40 latRender→leitura=6,6ms
+11-06 13:18:19.006 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17026 marker=17026 lastSeq=17211 gaps=40 latRender→leitura=6,3ms
+11-06 13:18:20.009 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17057 marker=17057 lastSeq=17242 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:21.012 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17087 marker=17087 lastSeq=17272 gaps=40 latRender→leitura=6,3ms
+11-06 13:18:21.622 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,7/p95 4,0 ms cpu=13% mem=125MB outs=1 luma=0,17
+11-06 13:18:22.016 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17117 marker=17117 lastSeq=17302 gaps=40 latRender→leitura=6,7ms
+11-06 13:18:23.020 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17148 marker=17148 lastSeq=17333 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:24.023 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17178 marker=17178 lastSeq=17363 gaps=40 latRender→leitura=6,4ms
+11-06 13:18:25.025 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17209 marker=17209 lastSeq=17394 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:26.028 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17239 marker=17239 lastSeq=17424 gaps=40 latRender→leitura=6,2ms
+11-06 13:18:26.910 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,6/p95 3,9 ms cpu=13% mem=125MB outs=1 luma=0,16
+11-06 13:18:27.031 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17269 marker=17269 lastSeq=17454 gaps=40 latRender→leitura=6,8ms
+11-06 13:18:28.034 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17300 marker=17300 lastSeq=17485 gaps=40 latRender→leitura=6,4ms
+11-06 13:18:29.037 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17330 marker=17330 lastSeq=17515 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:30.040 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17360 marker=17360 lastSeq=17545 gaps=40 latRender→leitura=6,6ms
+11-06 13:18:31.043 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17391 marker=17391 lastSeq=17576 gaps=40 latRender→leitura=6,5ms
+11-06 13:18:32.047 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17421 marker=17421 lastSeq=17606 gaps=40 latRender→leitura=6,7ms
+11-06 13:18:32.197 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,7/p95 3,9 ms cpu=26% mem=124MB outs=1 luma=0,17
+11-06 13:18:33.051 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17451 marker=17451 lastSeq=17637 gaps=41 latRender→leitura=6,8ms
+11-06 13:18:34.056 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17481 marker=17481 lastSeq=17667 gaps=41 latRender→leitura=6,7ms
+11-06 13:18:35.059 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17512 marker=17512 lastSeq=17698 gaps=41 latRender→leitura=6,8ms
+11-06 13:18:36.063 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17542 marker=17542 lastSeq=17728 gaps=41 latRender→leitura=6,6ms
+11-06 13:18:37.067 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17572 marker=17572 lastSeq=17758 gaps=41 latRender→leitura=6,7ms
+11-06 13:18:37.469 13947 13964 I NVC/engine: [metrics] src=29,9 out=29,9 fps min=29,5 max=31,2 sd=0,29 drop=0 lat=2,8/p95 4,1 ms cpu=12% mem=124MB outs=1 luma=0,17
+11-06 13:18:38.071 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17602 marker=17602 lastSeq=17789 gaps=42 latRender→leitura=6,6ms
+11-06 13:18:39.075 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17632 marker=17632 lastSeq=17819 gaps=42 latRender→leitura=6,7ms
+11-06 13:18:40.080 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=17663 marker=17663 lastSeq=17850 gaps=42 latRender→leitura=6,5ms
+11-06 13:18:41.084 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17693 marker=17693 lastSeq=17880 gaps=42 latRender→leitura=6,7ms
+11-06 13:18:42.087 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17724 marker=17724 lastSeq=17911 gaps=42 latRender→leitura=6,7ms
+11-06 13:18:42.757 13947 13964 I NVC/engine: [metrics] src=30,2 out=30,2 fps min=29,5 max=31,2 sd=0,29 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,17
+11-06 13:18:43.092 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17754 marker=17754 lastSeq=17941 gaps=42 latRender→leitura=6,8ms
+11-06 13:18:44.094 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=17783 marker=17783 lastSeq=17971 gaps=43 latRender→leitura=6,9ms
+11-06 13:18:45.099 14005 14005 I NVC-CONSUMER: STATS fps=30,8 frames=17814 marker=17814 lastSeq=18002 gaps=43 latRender→leitura=6,7ms
+11-06 13:18:46.104 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17844 marker=17844 lastSeq=18032 gaps=43 latRender→leitura=6,8ms
+11-06 13:18:47.106 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=17875 marker=17875 lastSeq=18063 gaps=43 latRender→leitura=6,8ms
+11-06 13:18:48.037 13947 13964 I NVC/engine: [metrics] src=30,4 out=30,4 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,8/p95 4,1 ms cpu=14% mem=124MB outs=1 luma=0,18
+11-06 13:18:48.111 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17905 marker=17905 lastSeq=18093 gaps=43 latRender→leitura=6,7ms
+11-06 13:18:49.113 14005 14005 I NVC-CONSUMER: STATS fps=28,9 frames=17934 marker=17933 lastSeq=18121 gaps=43 latRender→leitura=6,5ms
+11-06 13:18:50.117 14005 14005 I NVC-CONSUMER: STATS fps=31,9 frames=17966 marker=17966 lastSeq=18154 gaps=43 latRender→leitura=6,8ms
+11-06 13:18:51.122 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=17996 marker=17996 lastSeq=18184 gaps=43 latRender→leitura=6,6ms
+11-06 13:18:52.126 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=18027 marker=18027 lastSeq=18215 gaps=43 latRender→leitura=6,7ms
+11-06 13:18:53.131 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=18057 marker=18057 lastSeq=18245 gaps=43 latRender→leitura=6,6ms
+11-06 13:18:53.325 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,2 sd=0,28 drop=0 lat=2,8/p95 4,0 ms cpu=14% mem=125MB outs=1 luma=0,18
+11-06 13:18:54.135 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=18088 marker=18088 lastSeq=18276 gaps=43 latRender→leitura=6,6ms
+11-06 13:18:55.138 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=18118 marker=18118 lastSeq=18306 gaps=43 latRender→leitura=6,9ms
+11-06 13:18:56.142 14005 14005 I NVC-CONSUMER: STATS fps=30,9 frames=18149 marker=18149 lastSeq=18337 gaps=43 latRender→leitura=6,4ms
+11-06 13:18:57.146 14005 14005 I NVC-CONSUMER: STATS fps=29,9 frames=18179 marker=18179 lastSeq=18367 gaps=43 latRender→leitura=6,7ms
+11-06 13:18:57.148 14005 14005 I NVC-CONSUMER: AUTO_RESULT frames=18179 marker=18179 gaps=43 lastSeq=18367
+11-06 13:18:57.160 13947 13978 I NVC/engine: [output] saída 'ext-17939849350301-1' removida (entregues=18222, descartes=0)
+11-06 13:18:57.162 13947 13960 I NVC/binder: [session] sessão 17939849350301 (br.com.neurelix.vcam.consumer) encerrada: fechada pelo consumidor; quadros entregues=24718
+11-06 13:18:57.162 14005 14005 I NVC-CONSUMER: Sessão fechada (fim do teste automático)
+11-06 13:18:57.164 14005 14005 I NVC-CONSUMER: AUTO_DONE
+11-06 13:18:58.598 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,2 sd=0,29 drop=0 lat=2,7/p95 3,9 ms cpu=9% mem=113MB outs=0 luma=0,17
+11-06 13:19:03.884 13947 13964 I NVC/engine: [metrics] src=30,4 out=30,4 fps min=29,5 max=31,1 sd=0,29 drop=0 lat=2,7/p95 3,9 ms cpu=9% mem=112MB outs=0 luma=0,17
+11-06 13:19:09.160 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,27 drop=0 lat=2,7/p95 3,9 ms cpu=9% mem=112MB outs=0 luma=0,17
+11-06 13:19:14.445 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,5 max=31,1 sd=0,25 drop=0 lat=2,6/p95 3,8 ms cpu=9% mem=112MB outs=0 luma=0,17
+11-06 13:19:19.725 13947 13964 I NVC/engine: [metrics] src=30,3 out=30,3 fps min=29,7 max=31,1 sd=0,21 drop=0 lat=2,6/p95 3,9 ms cpu=9% mem=112MB outs=0 luma=0,17

@@ -1,0 +1,11 @@
+modo=video minutos=10 pid=15217 início=13:19:28
+amostras de métricas (a cada 5 s, após aquecimento): 117
+FPS saída: média 28.49  mín 26.4  máx 29.6  σ 0.56
+FPS fonte: média 29.26
+latência pipeline: média 2.7 ms, p95 médio 4.0 ms, pior p95 4.8 ms
+descartes acumulados (final): 458
+CPU app (amostras de 1 s do motor): média 42%  máx 58%
+Memória PSS app: início 195 MB → fim 166 MB (máx 201)
+consumidor: AUTO_RESULT frames=17191 marker=0 gaps=0 lastSeq=-1
+crashes: 0
+avisos/erros NVC: 0

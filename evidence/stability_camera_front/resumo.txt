@@ -1,0 +1,11 @@
+modo=camera_front minutos=10 pid=16284 início=13:30:04
+amostras de métricas (a cada 5 s, após aquecimento): 112
+FPS saída: média 19.27  mín 2.6  máx 29.7  σ 11.26
+FPS fonte: média 20.46
+latência pipeline: média 26.0 ms, p95 médio 27.4 ms, pior p95 86.5 ms
+descartes acumulados (final): 807
+CPU app (amostras de 1 s do motor): média 31%  máx 75%
+Memória PSS app: início 172 MB → fim 228 MB (máx 242)
+consumidor: AUTO_RESULT frames=6568 marker=0 gaps=0 lastSeq=-1
+crashes: 0
+avisos/erros NVC: 0
