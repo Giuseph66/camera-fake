@@ -55,11 +55,8 @@ fun IntegrationScreen() {
     val fmt = remember { SimpleDateFormat("dd/MM HH:mm:ss", Locale.getDefault()) }
 
     ScreenColumn {
-        SectionCard("Tipos de integração", "Cada tipo mostra o que realmente alcança. Nenhum deles registra uma câmera global sem root.") {
-            BackendRow(local.title, local.scope, localSt)
-            BackendRow(c.sessions.title, c.sessions.scope, consSt)
-            BackendRow(priv.title, priv.scope, privSt)
-        }
+        IntegrationGuide()
+        InstalledAppsPanel()
 
         SectionCard("Ativar / desativar a fonte para apps integrados") {
             Text("Quando ligada, apps que usam o SDK NEURELIX e que você autorizar abaixo podem receber a fonte numa Surface própria. Um aviso permanente fica visível enquanto a fonte estiver ativa.",
@@ -92,6 +89,12 @@ fun IntegrationScreen() {
             active.forEach { s ->
                 Text("${s.label} (${s.pkg}) · ${s.streams} stream(s) · ${s.delivered} quadros", style = MaterialTheme.typography.bodyMedium)
             }
+        }
+
+        SectionCard("Tipos de integração", "Cada tipo mostra o que realmente alcança. Nenhum deles registra uma câmera global sem root.") {
+            BackendRow(local.title, local.scope, localSt)
+            BackendRow(c.sessions.title, c.sessions.scope, consSt)
+            BackendRow(priv.title, priv.scope, privSt)
         }
 
         SectionCard("Compatibilidade comprovada por aplicativo", "Baseada em sessões reais registradas. Sem registro = não comprovado.") {

@@ -29,8 +29,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -58,6 +56,15 @@ private val tabs = listOf(
 )
 const val TAB_SETTINGS = 5
 
+private val HEADERS = listOf(
+    "Painel" to "Estado da câmera virtual e da integração",
+    "Fontes" to "Escolha o que a câmera virtual mostra",
+    "Efeitos" to "Filtros, intensidade e perfis",
+    "Integração" to "Conecte a fonte a outros aplicativos",
+    "Diagnóstico" to "Métricas reais, logs e exportação",
+    "Ajustes" to "Resolução, FPS e políticas do motor",
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppRoot(tabState: MutableIntState) {
@@ -71,14 +78,12 @@ fun AppRoot(tabState: MutableIntState) {
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
-            TopAppBar(
-                title = { Text(if (tab == TAB_SETTINGS) "Ajustes avançados" else "NEURELIX · Câmera Virtual") },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
-                actions = {
-                    IconButton(onClick = { tabState.intValue = if (tab == TAB_SETTINGS) 0 else TAB_SETTINGS }) {
-                        Icon(Icons.Filled.Settings, contentDescription = "Ajustes avançados")
-                    }
-                },
+            val running by controller.running.collectAsStateWithLifecycle()
+            val (title, subtitle) = HEADERS.getOrElse(tab) { "" to "" }
+            NvHeader(
+                title = title, subtitle = subtitle, live = running,
+                settingsActive = tab == TAB_SETTINGS,
+                onSettings = { tabState.intValue = if (tab == TAB_SETTINGS) 0 else TAB_SETTINGS },
             )
         },
         bottomBar = {

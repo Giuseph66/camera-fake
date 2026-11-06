@@ -102,6 +102,11 @@ class EngineController(private val app: Application) {
             }
         }
         scope.launch { filters.collect { engine.setFilters(it) } }
+        // limpa recentes cujo arquivo copiado já não existe (não há miniatura nem como usar)
+        scope.launch {
+            val gone = withContext(Dispatchers.IO) { settings.recents.first().filter { it.path != null && !File(it.path!!).exists() } }
+            gone.forEach { settings.removeRecent(it.id) }
+        }
         scope.launch {
             externalEnabled.collect { on -> if (!on) sessions.closeAll("Integração externa desativada pelo usuário") }
         }
@@ -176,7 +181,8 @@ class EngineController(private val app: Application) {
         scope.launch {
             opMutex.withLock {
                 settings.setActiveSource(spec)
-                settings.addRecent(spec)
+                // câmeras e padrões são fixos na tela; "recentes" guarda só mídia da galeria (tem miniatura)
+                if (spec.kind == SourceKind.IMAGE || spec.kind == SourceKind.VIDEO) settings.addRecent(spec)
                 if (_running.value) {
                     val err = switchLocked(spec)
                     if (err != null) AppLog.w("app", "controller", "troca de fonte falhou: $err")
