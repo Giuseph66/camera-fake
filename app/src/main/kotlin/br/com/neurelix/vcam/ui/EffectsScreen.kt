@@ -31,14 +31,30 @@ fun EffectsScreen() {
     val f by c.filters.collectAsStateWithLifecycle()
     val profiles by c.profiles.collectAsStateWithLifecycle()
     val m by c.metrics.collectAsStateWithLifecycle()
+    val out by c.output.collectAsStateWithLifecycle()
     var profileName by remember { mutableStateOf("") }
     val upd = { g: (FilterParams) -> FilterParams -> c.updateFilters(g) }
 
     ScreenColumn {
         SectionCard("Pré-visualização", "O efeito é aplicado ao quadro processado que alimenta o preview, a captura e as saídas externas.") {
-            PreviewSurface(Modifier.fillMaxWidth().aspectRatio(16f / 9f))
+            PreviewSurface(Modifier.fillMaxWidth().aspectRatio(out.width.toFloat() / out.height))
             Text(if (m.avgLuma >= 0) "Luminância média medida: %.0f%%".format(m.avgLuma * 100) else "Inicie uma fonte para ver o resultado.",
                 style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+
+        SectionCard("Dimensionamento", "Formato do quadro de saída. Vale para foto e vídeo: a fonte é encaixada nessa moldura.") {
+            val retrato = out.height > out.width
+            val lado = maxOf(out.width, out.height)
+            val curto = minOf(out.width, out.height)
+            Text(
+                if (m.sourceWidth > 0) "Fonte atual: ${m.sourceWidth}×${m.sourceHeight} (${if (m.sourceHeight > m.sourceWidth) "retrato" else "paisagem"})"
+                else "Inicie uma foto ou vídeo para ver as dimensões da fonte.",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            ChoiceChips("Orientação da saída", listOf(true, false), retrato, { if (it) "Retrato" else "Paisagem" }) { v ->
+                c.updateOutput { it.copy(width = if (v) curto else lado, height = if (v) lado else curto) }
+            }
+            Text("Saída: ${out.width}×${out.height}", style = MaterialTheme.typography.bodySmall)
         }
 
         SectionCard("Filtros", "0 = neutro. Cada controle é a intensidade do filtro.") {

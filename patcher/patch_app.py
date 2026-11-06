@@ -103,6 +103,15 @@ CAM2_RULES = [
      CAM2_SHIM + "->acquireLatestImage(Landroid/media/ImageReader;)Landroid/media/Image;"),
     (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/media/ImageReader;->acquireNextImage\(\)Landroid/media/Image;",
      CAM2_SHIM + "->acquireNextImage(Landroid/media/ImageReader;)Landroid/media/Image;"),
+    # callbacks de captura: a Surface do drain volta a ser a do app em onCaptureBufferLost
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraCaptureSession;->setRepeatingRequest\(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession\$CaptureCallback;Landroid/os/Handler;\)I",
+     CAM2_SHIM + "->setRepeatingRequest(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I"),
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraCaptureSession;->capture\(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession\$CaptureCallback;Landroid/os/Handler;\)I",
+     CAM2_SHIM + "->capture(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I"),
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraCaptureSession;->setRepeatingBurst\(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession\$CaptureCallback;Landroid/os/Handler;\)I",
+     CAM2_SHIM + "->setRepeatingBurst(Landroid/hardware/camera2/CameraCaptureSession;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I"),
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraCaptureSession;->captureBurst\(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession\$CaptureCallback;Landroid/os/Handler;\)I",
+     CAM2_SHIM + "->captureBurst(Landroid/hardware/camera2/CameraCaptureSession;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I"),
 ]
 
 def rewrite_camera2(dec):

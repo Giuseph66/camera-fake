@@ -37,6 +37,7 @@ public final class CamHook {
     private static final String TAG = "NVC-CAMHOOK";
     private static final long RETRY_MS = 3000;
     private static final long FEED_INTERVAL_MS = 100;   // ~10 fps para análise (captureJpeg é o caminho atual)
+    private static final int[] JPEG_QUALITIES = { 95, 85, 75, 60, 45 };
 
     private static final Object LOCK = new Object();
     private static NeurelixSession neurelix;
@@ -124,6 +125,54 @@ public final class CamHook {
         List<Surface> apps = new ArrayList<>();
         for (OutputConfiguration oc : ocs) out.add(redirect(oc, apps));
         d.createCaptureSessionByOutputConfigurations(out, wrap(cb, apps), h);
+    }
+
+    // ---- ponto 5: CameraCaptureSession.setRepeatingRequest/capture/... (callbacks do CameraX) ----
+    public static int setRepeatingRequest(CameraCaptureSession s, CaptureRequest r, CameraCaptureSession.CaptureCallback cb, Handler h)
+            throws CameraAccessException {
+        return s.setRepeatingRequest(r, wrapCapture(cb), h);
+    }
+
+    public static int capture(CameraCaptureSession s, CaptureRequest r, CameraCaptureSession.CaptureCallback cb, Handler h)
+            throws CameraAccessException {
+        return s.capture(r, wrapCapture(cb), h);
+    }
+
+    public static int setRepeatingBurst(CameraCaptureSession s, List<CaptureRequest> rs, CameraCaptureSession.CaptureCallback cb, Handler h)
+            throws CameraAccessException {
+        return s.setRepeatingBurst(rs, wrapCapture(cb), h);
+    }
+
+    public static int captureBurst(CameraCaptureSession s, List<CaptureRequest> rs, CameraCaptureSession.CaptureCallback cb, Handler h)
+            throws CameraAccessException {
+        return s.captureBurst(rs, wrapCapture(cb), h);
+    }
+
+    /**
+     * A sessão real escreve no drain, mas o CameraX mapeia streams pela Surface do app. Quando o HAL reporta
+     * perda de buffer no drain, o CameraX não acha o stream, lança exceção no próprio looper e o grafo da câmera
+     * fecha. Aqui a Surface do drain volta a ser a do app antes de chegar ao callback.
+     */
+    private static CameraCaptureSession.CaptureCallback wrapCapture(final CameraCaptureSession.CaptureCallback cb) {
+        if (cb == null) return null;
+        return new CameraCaptureSession.CaptureCallback() {
+            @Override public void onCaptureStarted(CameraCaptureSession s, CaptureRequest r, long ts, long fn) { cb.onCaptureStarted(s, r, ts, fn); }
+            @Override public void onCaptureProgressed(CameraCaptureSession s, CaptureRequest r, android.hardware.camera2.CaptureResult p) { cb.onCaptureProgressed(s, r, p); }
+            @Override public void onCaptureCompleted(CameraCaptureSession s, CaptureRequest r, android.hardware.camera2.TotalCaptureResult res) { cb.onCaptureCompleted(s, r, res); }
+            @Override public void onCaptureFailed(CameraCaptureSession s, CaptureRequest r, android.hardware.camera2.CaptureFailure f) { cb.onCaptureFailed(s, r, f); }
+            @Override public void onCaptureSequenceCompleted(CameraCaptureSession s, int id, long fn) { cb.onCaptureSequenceCompleted(s, id, fn); }
+            @Override public void onCaptureSequenceAborted(CameraCaptureSession s, int id) { cb.onCaptureSequenceAborted(s, id); }
+            @Override public void onCaptureBufferLost(CameraCaptureSession s, CaptureRequest r, Surface target, long fn) {
+                cb.onCaptureBufferLost(s, r, appSurfaceOf(target), fn);
+            }
+        };
+    }
+
+    private static Surface appSurfaceOf(Surface real) {
+        synchronized (LOCK) {
+            for (Map.Entry<Surface, Surface> e : REAL.entrySet()) if (e.getValue() == real) return e.getKey();
+        }
+        return real;
     }
 
     // ------------------------------------------------------------------------------------------
@@ -225,12 +274,17 @@ public final class CamHook {
         NeurelixSession s = session();
         if (s == null) return img;
         try {
-            byte[] jpg = s.captureJpeg(95);
             ByteBuffer buf = img.getPlanes()[0].getBuffer();
             int capacity = buf.capacity();
             final int FOOTER = 8;   // camera3_jpeg_blob_t: 2 bytes id + 2 padding + 4 bytes jpeg_size
-            if (jpg.length + FOOTER > capacity) {
-                Log.w(TAG, "JPEG virtual (" + jpg.length + ") não cabe no buffer real (" + capacity + "), foto mantida real");
+            // o buffer JPEG da câmera tem tamanho máximo fixo; foto grande precisa de qualidade menor pra caber
+            byte[] jpg = null;
+            for (int q : JPEG_QUALITIES) {
+                byte[] c = s.captureJpeg(q);
+                if (c != null && c.length + FOOTER <= capacity) { jpg = c; break; }
+            }
+            if (jpg == null) {
+                Log.w(TAG, "JPEG virtual não cabe no buffer real (" + capacity + "), foto mantida real");
                 return img;
             }
             // Buffers BLOB/JPEG guardam o tamanho real num rodapé de 8 bytes no FINAL do buffer
