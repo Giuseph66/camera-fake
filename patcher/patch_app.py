@@ -68,13 +68,54 @@ def rename_permission_refs(dec, old, new_pkg):
             if n != t:
                 open(fp, "w", encoding="utf-8").write(n)
 
+CAM2_SHIM = "Lbr/com/neurelix/vcam/shim/CamHook;"
+CAM2_RULES = [
+    # ImageReader.newInstance(w,h,format,n): registra o formato para decidir o redirecionamento
+    (r"invoke-static(/range)? \{([^}]*)\}, Landroid/media/ImageReader;->newInstance\(IIII\)Landroid/media/ImageReader;",
+     CAM2_SHIM + "->newImageReader(IIII)Landroid/media/ImageReader;"),
+    # addTarget(Surface): a Surface do app vira a descartável quando redirecionada
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CaptureRequest\$Builder;->addTarget\(Landroid/view/Surface;\)V",
+     CAM2_SHIM + "->addTarget(Landroid/hardware/camera2/CaptureRequest$Builder;Landroid/view/Surface;)V"),
+    # createCaptureSession(List, StateCallback, Handler)
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraDevice;->createCaptureSession\(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession\$StateCallback;Landroid/os/Handler;\)V",
+     CAM2_SHIM + "->createCaptureSession(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V"),
+    # createCaptureSession(SessionConfiguration)
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraDevice;->createCaptureSession\(Landroid/hardware/camera2/params/SessionConfiguration;\)V",
+     CAM2_SHIM + "->createCaptureSession(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/params/SessionConfiguration;)V"),
+    # createCaptureSessionByOutputConfigurations(List, StateCallback, Handler)
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraDevice;->createCaptureSessionByOutputConfigurations\(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession\$StateCallback;Landroid/os/Handler;\)V",
+     CAM2_SHIM + "->createCaptureSessionByOutputConfigurations(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V"),
+]
+
+def rewrite_camera2(dec):
+    """Reescreve os pontos de sessão Camera2 em todos os smali do app. Retorna {regra: n_trocas}."""
+    counts = [0] * len(CAM2_RULES)
+    for root, _, files in os.walk(dec):
+        if not any(seg.startswith("smali") for seg in root.split(os.sep)):
+            continue
+        for f in files:
+            if not f.endswith(".smali"):
+                continue
+            fp = os.path.join(root, f)
+            t = open(fp, encoding="utf-8").read()
+            n = t
+            for i, (pat, target) in enumerate(CAM2_RULES):
+                def rep(m, target=target):
+                    rng = m.group(1) or ""
+                    return f"invoke-static{rng} {{{m.group(2)}}}, {target}"
+                n, k = re.subn(pat, rep, n)
+                counts[i] += k
+            if n != t:
+                open(fp, "w", encoding="utf-8").write(n)
+    return counts
+
 def patch_preview_smali(path):
     s = open(path, encoding="utf-8").read()
     sig = ".method private openCameraCore(ILjava/lang/String;)Lnet/sourceforge/opencamera/cameracontroller/CameraController;"
     if sig not in s:
-        sys.exit("openCameraCore não encontrado no smali (versão do Open Camera diferente?)")
+        return False   # não é o Open Camera: o hook específico não se aplica
     if "NeurelixHook" in s:
-        return
+        return True
     hook = (
         "    invoke-direct {p0}, Lnet/sourceforge/opencamera/preview/Preview;->getContext()Landroid/content/Context;\n"
         "    move-result-object v0\n"
@@ -89,6 +130,7 @@ def patch_preview_smali(path):
     j = s.index(":try_start_0", i)
     s = s[:j] + hook + "\n    " + s[j:]
     open(path, "w", encoding="utf-8").write(s)
+    return True
 
 def add_dex(apk_built, dex_src, out_apk):
     with zipfile.ZipFile(apk_built) as zin:
@@ -121,7 +163,15 @@ def main():
     print(f"   {old_pkg} -> {new_pkg}")
     print("3) hook smali")
     pv = subprocess.run(["find", dec, "-path", "*/net/sourceforge/opencamera/preview/Preview.smali"], capture_output=True, text=True).stdout.strip().splitlines()
-    patch_preview_smali(pv[0])
+    if pv and patch_preview_smali(pv[0]):
+        print("   hook do Open Camera (openCameraCore) aplicado")
+    else:
+        print("   hook específico do Open Camera não se aplica a este app")
+    cam2 = rewrite_camera2(dec)
+    print("   Camera2 (ImageReader, addTarget, createCaptureSession x3):", cam2)
+    hook_open_cam = bool(pv) and "NeurelixHook" in open(pv[0], encoding="utf-8").read()
+    if sum(cam2) == 0 and not hook_open_cam:
+        sys.exit("nenhum ponto de câmera encontrado: o app não usa Camera2/CameraX")
     print("4) build"); built = os.path.join(work, "built.apk")
     run([JAVA, "-jar", APKTOOL, "b", dec, "-o", built], cwd=work)
     print("5) dex do shim")

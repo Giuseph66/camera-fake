@@ -1,0 +1,39 @@
+{
+  "etapa": "falhou_validacao",
+  "detalhe": "falhou: autorizacao, sessao_neurelix, camera_do_app_ativa, padrao_virtual_na_tela",
+  "checks": {
+    "instalado": {
+      "ok": true,
+      "detalhe": "package:/data/app/~~InAtZ3wHOsOJS80T_5wdyg==/br.org.vida.vision.neurelix-1x3qVwn"
+    },
+    "autorizacao": {
+      "ok": false,
+      "detalhe": "toque em Permitir na UI do NEURELIX"
+    },
+    "app_nao_crashou": {
+      "ok": true,
+      "detalhe": "FATAL=0 pid=20948"
+    },
+    "hook_executou": {
+      "ok": true,
+      "detalhe": "logs do shim presentes"
+    },
+    "sessao_neurelix": {
+      "ok": false,
+      "detalhe": "saídas redirecionadas=0"
+    },
+    "camera_do_app_ativa": {
+      "ok": false,
+      "detalhe": "clientes de câmera=0"
+    },
+    "padrao_virtual_na_tela": {
+      "ok": false,
+      "detalhe": "pixels do padrão=0",
+      "captura": "/home/jesus/Progetos/camera-fake/patcher/work/val_br.org.vida.vision/tela.png"
+    },
+    "saidas_mantidas_na_camera_real": {
+      "ok": true,
+      "detalhe": "formato 23 mantida"
+    }
+  }
+}
