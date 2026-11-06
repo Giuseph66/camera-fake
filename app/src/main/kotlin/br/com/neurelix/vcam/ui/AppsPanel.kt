@@ -67,6 +67,11 @@ private val DENYLIST = listOf(
     "com.bradesco", "br.com.vivo", "com.paypal", "com.samsung.android.spay", "br.com.honda", "com.salesforce", "br.com.sim.",
 )
 
+private fun isBlockedPackage(pkg: String): Boolean = DENYLIST.any { prefix ->
+    val root = prefix.trimEnd('.')
+    pkg == root || pkg.startsWith("$root.")
+}
+
 private data class AppEntry(
     val pkg: String, val label: String, val icon: ImageBitmap?, val apkPath: String,
     val blocked: Boolean, val supported: Supported?, val isNeurelixVariant: Boolean,
@@ -87,7 +92,7 @@ private suspend fun loadApps(ctx: Context): List<AppEntry> = withContext(Dispatc
                 AppEntry(
                     pkg, pm.getApplicationLabel(ai).toString(),
                     runCatching { pm.getApplicationIcon(ai).toBitmap(96, 96).asImageBitmap() }.getOrNull(),
-                    ai.sourceDir, DENYLIST.any { pkg.startsWith(it) }, SUPPORTED[pkg], pkg.startsWith("br.com.neurelix.opencamera"),
+                    ai.sourceDir, isBlockedPackage(pkg), SUPPORTED[pkg], pkg.startsWith("br.com.neurelix.opencamera"),
                 )
             }.getOrNull()
         }
@@ -219,7 +224,22 @@ private fun AppDialog(a: AppEntry, onDismiss: () -> Unit) {
                         Text("Esta já é uma cópia preparada pelo NEURELIX. Ela sempre pede a câmera virtual; se não houver fonte ativa ou autorização, volta para a câmera física.", style = MaterialTheme.typography.bodyMedium)
                         Button(onClick = { ctx.packageManager.getLaunchIntentForPackage(a.pkg)?.let { ctx.startActivity(it) } }) { Text("Abrir") }
                     }
-                    sup == null -> Text("Ainda não há hook validado para este app. O patcher precisa de uma análise de onde ele abre a câmera (o hook atual é específico do Open Camera). Hoje não consigo prometer que funcione.", style = MaterialTheme.typography.bodyMedium)
+                    sup == null -> {
+                        Text("Hook ainda não validado. O fluxo experimental detecta padrões Camera2, tenta gerar uma cópia e valida no aparelho; pode recusar APIs não suportadas.", style = MaterialTheme.typography.bodyMedium)
+                        Text("1. Exportar o APK original", style = MaterialTheme.typography.titleSmall)
+                        OutlinedButton(onClick = {
+                            scope.launch {
+                                runCatching { exportApk(ctx, a) }.onSuccess { exported = it; err = null }.onFailure { err = it.message }
+                            }
+                        }) { Text(if (exported == null) "Exportar APK" else "Exportado ✓") }
+                        err?.let { Text(it, color = Red, style = MaterialTheme.typography.bodySmall) }
+                        if (exported != null) {
+                            val auto = "python3 patcher/auto_pipeline.py --serial $serial --only ${a.pkg}.apk"
+                            Text("2. No PC, dentro do projeto", style = MaterialTheme.typography.titleSmall)
+                            CodeBlock(auto, ctx)
+                            Text("Troque SERIAL_DO_APARELHO pelo resultado de `adb devices`. O pipeline inspeciona, tenta o hook, instala a cópia e valida. O APK original não é alterado.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                    }
                     else -> {
                         Text("${sup.name} — ${sup.note}", style = MaterialTheme.typography.bodyMedium)
                         Text("1. Exportar o APK original", style = MaterialTheme.typography.titleSmall)

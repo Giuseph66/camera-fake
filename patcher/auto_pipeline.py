@@ -70,11 +70,19 @@ def main():
     ap.add_argument("--interval", type=int, default=15)
     ap.add_argument("--once", action="store_true")
     ap.add_argument("--process-existing", action="store_true", help="processa também APKs já presentes ao iniciar")
+    ap.add_argument("--only", metavar="APK", help="processa apenas este APK já exportado")
     a = ap.parse_args()
     if not a.serial:
         lines = subprocess.run(["adb", "devices"], capture_output=True, text=True).stdout.split("\n")
         a.serial = next((l.split()[0] for l in lines[1:] if "\tdevice" in l), None)
     if not a.serial: sys.exit("nenhum aparelho")
+    if a.only:
+        if os.path.basename(a.only) != a.only or not a.only.endswith(".apk"):
+            sys.exit("--only deve ser o nome de um arquivo .apk, sem diretórios")
+        if a.only not in list_apks(a.serial):
+            sys.exit(f"APK não encontrado na pasta de exportação: {a.only}")
+        process(a.serial, a.only)
+        return
     done = set() if a.process_existing else set(list_apks(a.serial))   # baseline: só o que chegar depois
     print(f"vigiando {a.serial} em {APKS} (a cada {a.interval}s)", flush=True)
     while True:

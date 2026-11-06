@@ -15,7 +15,7 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.media.ImageWriter;
 import android.os.Handler;
-import android.os.Looper;
+import android.os.HandlerThread;
 import android.util.Log;
 import android.view.Surface;
 
@@ -41,8 +41,19 @@ public final class CamHook {
     private static final Object LOCK = new Object();
     private static NeurelixSession neurelix;
     private static long lastFailMs;
+    // listener dos readers de drain/trigger roda aqui, não na main: a main fica ocupada durante a
+    // captura (UI, som, flash) e deixa de esvaziar o drain a tempo -> buffer perdido -> CameraX derruba o app
+    private static final Handler IO = ioHandler();
+    private static Handler ioHandler() {
+        HandlerThread t = new HandlerThread("nvc-cam-io");
+        t.start();
+        return new Handler(t.getLooper());
+    }
 
-    private static final class Info { final int format, w, h; Info(int f, int w, int h) { format = f; this.w = w; this.h = h; } }
+    private static final class Info {
+        final int format, w, h, maxImages;
+        Info(int f, int w, int h, int maxImages) { format = f; this.w = w; this.h = h; this.maxImages = maxImages; }
+    }
     private static final Map<Surface, Info> INFO = new IdentityHashMap<>();        // do ImageReader do app
     private static final Map<Surface, Surface> REAL = new IdentityHashMap<>();     // app -> superfície da sessão real
     private static final Map<Surface, Object> RESOURCES = new IdentityHashMap<>(); // app -> ImageReader/feeder a liberar
@@ -50,11 +61,28 @@ public final class CamHook {
 
     private CamHook() { }
 
+    static {
+        // O CameraX monta seu próprio mapa Surface->streamId a partir da configuração ORIGINAL da
+        // sessão. Como trocamos a Surface real por uma de drenagem (drain) depois que esse mapa já foi
+        // montado, um evento de perda de buffer no stream trocado faz o CameraX derrubar o app com
+        // IllegalStateException("Unable to find the streamId..."). Não dá pra evitar o evento (vem da
+        // câmera real); só dá pra impedir que ele mate o processo.
+        final Thread.UncaughtExceptionHandler prev = Thread.getDefaultUncaughtExceptionHandler();
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            String msg = e.getMessage();
+            if (e instanceof IllegalStateException && msg != null && msg.contains("streamId")) {
+                Log.w(TAG, "falha interna do CameraX pós-redirecionamento ignorada (" + t.getName() + "): " + e);
+                return;
+            }
+            if (prev != null) prev.uncaughtException(t, e);
+        });
+    }
+
     // ---- ponto 0: ImageReader.newInstance(w, h, format, maxImages) ----
     public static ImageReader newImageReader(int w, int h, int format, int maxImages) {
         // Tentativa de usage com CPU_WRITE: travou o CameraX neste aparelho (câmera nunca abre). Revertido.
         ImageReader r = ImageReader.newInstance(w, h, format, maxImages);
-        synchronized (LOCK) { INFO.put(r.getSurface(), new Info(format, w, h)); }
+        synchronized (LOCK) { INFO.put(r.getSurface(), new Info(format, w, h, maxImages)); }
         return r;
     }
 
@@ -119,7 +147,9 @@ public final class CamHook {
         }
         if (info == null) return redirectEgl(app);                      // preview (SurfaceTexture)
         if (info.format == ImageFormat.YUV_420_888) return redirectYuv(app, info);
-        if (info.format == ImageFormat.JPEG) return redirectJpeg(app, info);
+        // JPEG: fica com a câmera real (um ImageWriter não sabe alocar o buffer BLOB). Os bytes da foto
+        // são trocados depois, em acquireLatestImage/acquireNextImage, dentro do buffer já alocado.
+        if (info.format == ImageFormat.JPEG) return null;
         if (info.format == PixelFormat.RGBA_8888) return redirectEgl(app);
         Log.i(TAG, "saída de formato " + Integer.toHexString(info.format) + " mantida na câmera real");
         return null;
@@ -152,14 +182,15 @@ public final class CamHook {
         if (s == null) return null;
         // diagnóstico: com /data/local/tmp/nvc_nofeed presente, o alimentador de análise não roda
         boolean noFeed = new java.io.File("/data/local/tmp/nvc_nofeed").exists();
+        ImageReader drain = null;
         try {
-            ImageReader drain = drainReader(info.w, info.h, ImageFormat.YUV_420_888);
+            drain = drainReader(info.w, info.h, ImageFormat.YUV_420_888);
             if (noFeed) {
                 synchronized (LOCK) { REAL.put(app, drain.getSurface()); RESOURCES.put(app, new Object[] { drain }); }
                 Log.i(TAG, "análise: alimentador DESLIGADO (diagnóstico)");
                 return drain.getSurface();
             }
-            ImageWriter writer = ImageWriter.newInstance(app, 3, ImageFormat.YUV_420_888);   // formato explícito: planos com acesso de CPU
+            ImageWriter writer = ImageWriter.newInstance(app, info.maxImages, ImageFormat.YUV_420_888);   // mesmo maxImages do ImageReader real
             Feeder feeder = new Feeder(app, writer, info.w, info.h);
             feeder.start();
             synchronized (LOCK) {
@@ -169,51 +200,65 @@ public final class CamHook {
             Log.i(TAG, "análise YUV " + info.w + "x" + info.h + " alimentada com quadros virtuais");
             return drain.getSurface();
         } catch (Throwable t) {
-            Log.e(TAG, "análise YUV mantida na câmera real: " + t);
+            Log.e(TAG, "alimentador de análise falhou, usando drain (não a câmera real)", t);
+            // mesmo motivo do JPEG: a Surface do app nunca pode ficar presa direto na câmera real
+            if (drain != null) {
+                synchronized (LOCK) { REAL.put(app, drain.getSurface()); RESOURCES.put(app, new Object[] { drain }); }
+                return drain.getSurface();
+            }
             return null;
         }
     }
 
-    /** Captura: sessão real recebe um drain JPEG; cada foto real vira uma injeção do JPEG virtual. */
-    private static Surface redirectJpeg(Surface app, Info info) {
+    // ---- ponto 5/6: ImageReader.acquireLatestImage()/acquireNextImage() ----
+    // A foto JPEG real chega aqui, já no buffer alocado (e corretamente dimensionado) pela câmera real.
+    // Troca o conteúdo desse buffer pelo JPEG virtual em vez de criar um buffer novo (ImageWriter não
+    // sabe alocar BLOB: "gralloc failed to allocate ... format 33 size 0" é sempre o resultado).
+    public static Image acquireLatestImage(ImageReader r) { return maybeSwapJpeg(r, r.acquireLatestImage()); }
+    public static Image acquireNextImage(ImageReader r) { return maybeSwapJpeg(r, r.acquireNextImage()); }
+
+    private static Image maybeSwapJpeg(ImageReader r, Image img) {
+        if (img == null) return img;
+        Info info;
+        synchronized (LOCK) { info = INFO.get(r.getSurface()); }
+        if (info == null || info.format != ImageFormat.JPEG) return img;
         NeurelixSession s = session();
-        if (s == null) return null;
+        if (s == null) return img;
         try {
-            ImageWriter writer = ImageWriter.newInstance(app, 2);
-            ImageReader trigger = new ImageReader.Builder(info.w, info.h).setImageFormat(ImageFormat.JPEG).setMaxImages(3).build();
-            trigger.setOnImageAvailableListener(rd -> {
-                try (Image img = rd.acquireLatestImage()) {
-                    if (img == null) return;
-                    long ts = img.getTimestamp();
-                    byte[] jpg = session().captureJpeg(95);
-                    Image out = writer.dequeueInputImage();
-                    ByteBuffer buf = out.getPlanes()[0].getBuffer();
-                    buf.clear();
-                    buf.put(jpg);
-                    out.setTimestamp(ts);
-                    writer.queueInputImage(out);
-                    Log.i(TAG, "foto: JPEG virtual injetado (" + jpg.length + " bytes, ts=" + ts + ")");
-                } catch (Throwable t) {
-                    Log.e(TAG, "falha ao injetar foto virtual: " + t);
-                }
-            }, new Handler(Looper.getMainLooper()));
-            synchronized (LOCK) {
-                REAL.put(app, trigger.getSurface());
-                RESOURCES.put(app, new Object[] { trigger, writer });
+            byte[] jpg = s.captureJpeg(95);
+            ByteBuffer buf = img.getPlanes()[0].getBuffer();
+            int capacity = buf.capacity();
+            final int FOOTER = 8;   // camera3_jpeg_blob_t: 2 bytes id + 2 padding + 4 bytes jpeg_size
+            if (jpg.length + FOOTER > capacity) {
+                Log.w(TAG, "JPEG virtual (" + jpg.length + ") não cabe no buffer real (" + capacity + "), foto mantida real");
+                return img;
             }
-            Log.i(TAG, "captura JPEG " + info.w + "x" + info.h + " passa a receber a foto virtual");
-            return trigger.getSurface();
+            // Buffers BLOB/JPEG guardam o tamanho real num rodapé de 8 bytes no FINAL do buffer
+            // (convenção camera3_jpeg_blob_t), não no limit() do ByteBuffer. Quem lê a foto usa esse
+            // rodapé; se ele continuar apontando pro tamanho da foto real, a leitura estoura o que
+            // escrevemos (BufferUnderflowException). Por isso preenche o resto e escreve o rodapé certo.
+            buf.order(java.nio.ByteOrder.nativeOrder());
+            buf.position(0);
+            buf.put(jpg);
+            int pad = capacity - FOOTER - jpg.length;
+            if (pad > 0) buf.put(new byte[pad]);
+            buf.position(capacity - FOOTER);
+            buf.putInt(0x00FF);      // jpeg_blob_id
+            buf.putInt(jpg.length);  // jpeg_size real do JPEG virtual
+            buf.position(0);
+            buf.limit(capacity);     // buffer continua no tamanho total: quem lê usa o rodapé, não limit()
+            Log.i(TAG, "foto: bytes reais trocados pelo JPEG virtual (" + jpg.length + " bytes)");
         } catch (Throwable t) {
-            Log.e(TAG, "captura mantida na câmera real: " + t);
-            return null;
+            Log.e(TAG, "falha ao trocar bytes da foto, mantida real", t);
         }
+        return img;
     }
 
     private static ImageReader drainReader(int w, int h, int format) {
-        ImageReader r = ImageReader.newInstance(w, h, format, 3);
+        ImageReader r = ImageReader.newInstance(w, h, format, 6);   // folga extra p/ não perder buffer durante captura
         r.setOnImageAvailableListener(rd -> {
             try (Image img = rd.acquireLatestImage()) { /* descarta */ } catch (Throwable ignored) { }
-        }, new Handler(Looper.getMainLooper()));
+        }, IO);
         return r;
     }
 

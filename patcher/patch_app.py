@@ -25,6 +25,12 @@ DENYLIST_PREFIXES = (  # apps de identidade/pagamento: o patcher não os modific
     "com.paypal.android", "br.com.sim.", "br.com.sicoobnet", "br.dataprev",
 )
 
+def is_blocked_package(package):
+    return any(
+        package == prefix.rstrip(".") or package.startswith(prefix.rstrip(".") + ".")
+        for prefix in DENYLIST_PREFIXES
+    )
+
 def run(cmd, **kw):
     r = subprocess.run(cmd, capture_output=True, text=True, **kw)
     if r.returncode != 0:
@@ -35,6 +41,12 @@ def patch_manifest(path, new_pkg):
     s = open(path, encoding="utf-8").read()
     old = re.search(r'<manifest [^>]*package="([^"]+)"', s).group(1)
     s = s.replace(f'package="{old}"', f'package="{new_pkg}"', 1)
+    # App Bundle (base+splits): remove exigência de splits, já que instalamos um APK único mesclado
+    s = re.sub(r'\s*android:requiredSplitTypes="[^"]*"', '', s)
+    s = re.sub(r'\s*android:splitTypes="[^"]*"', '', s)
+    s = re.sub(r'<meta-data android:name="com\.android\.vending\.splits(\.required)?"[^/]*/>', '', s)
+    # apktool rebuild perde o atributo de meta-data com android:resource="@null" (vira tag sem valor, instalação falha)
+    s = re.sub(r'<meta-data\b[^>]*?android:resource="@null"[^>]*/>', '', s)
     queries = ('<queries><package android:name="br.com.neurelix.virtualcamera" />'
                '<intent><action android:name="br.com.neurelix.vcam.action.BIND_VIRTUAL_CAMERA" /></intent></queries>')
     # permissões customizadas declaradas com o pacote antigo: o original já é "dono" desses nomes no sistema
@@ -85,6 +97,12 @@ CAM2_RULES = [
     # createCaptureSessionByOutputConfigurations(List, StateCallback, Handler)
     (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/hardware/camera2/CameraDevice;->createCaptureSessionByOutputConfigurations\(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession\$StateCallback;Landroid/os/Handler;\)V",
      CAM2_SHIM + "->createCaptureSessionByOutputConfigurations(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V"),
+    # acquireLatestImage()/acquireNextImage(): a foto JPEG real chega aqui; troca os bytes pelo JPEG
+    # virtual DENTRO do buffer já alocado pela câmera real (um ImageWriter não sabe alocar buffer BLOB).
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/media/ImageReader;->acquireLatestImage\(\)Landroid/media/Image;",
+     CAM2_SHIM + "->acquireLatestImage(Landroid/media/ImageReader;)Landroid/media/Image;"),
+    (r"invoke-virtual(/range)? \{([^}]*)\}, Landroid/media/ImageReader;->acquireNextImage\(\)Landroid/media/Image;",
+     CAM2_SHIM + "->acquireNextImage(Landroid/media/ImageReader;)Landroid/media/Image;"),
 ]
 
 def rewrite_camera2(dec):
@@ -152,13 +170,14 @@ def main():
         sys.exit(__doc__)
     origin, new_pkg, out = args[0], args[1], args[2]
     serial = args[args.index("--install") + 1] if "--install" in args else None
-    for bad in DENYLIST_PREFIXES:
-        if new_pkg.startswith(bad) or bad in os.path.basename(origin):
-            sys.exit("recusado: app de identidade/pagamento na lista de exclusão")
+    if is_blocked_package(new_pkg):
+        sys.exit("recusado: app de identidade/pagamento na lista de exclusão")
     work = tempfile.mkdtemp(prefix="nvc_patch_")
     dec = os.path.join(work, "dec")
     print("1) decode"); run([JAVA, "-jar", APKTOOL, "d", "-f", origin, "-o", dec], cwd=work)
     print("2) manifest"); old_pkg = patch_manifest(os.path.join(dec, "AndroidManifest.xml"), new_pkg)
+    if is_blocked_package(old_pkg):
+        sys.exit("recusado: app de identidade/pagamento na lista de exclusão")
     rename_permission_refs(dec, old_pkg, new_pkg)
     print(f"   {old_pkg} -> {new_pkg}")
     print("3) hook smali")
